@@ -9,7 +9,7 @@ The intention of this section is to provide a short overview about the L4Re
 Operating System Framework. For a more in-depth introduction, see
 :doc:`/detailed_introduction/architecture_concepts/index`.
 
-Architecturally, L4Re ist a `microkernel
+Architecturally, L4Re is a `microkernel
 <https://en.wikipedia.org/wiki/Microkernel>`_ based operating system. That is,
 the amount of code that is running in the most privileged level in the system
 is kept reasonably small. This design is key to building a secure and reliable
