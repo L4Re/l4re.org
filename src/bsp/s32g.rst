@@ -1,0 +1,59 @@
+NXP S32G
+********
+
+This page has specific information for running L4Re on NXP's S32G2 and
+S32G3.
+
+
+Building
+========
+
+Build an image for the S32G as follows::
+
+  $ make uimage E=hello PT=s32g
+
+Booting
+=======
+
+The S32G BSP needs a device-tree. Usually, a .dtb file is available on the
+flash on the device. Just use this one with u-boot.
+
+
+Booting with u-boot
+-------------------
+
+The standard BSP by NXP comes with u-boot.
+
+To boot L4Re, intercept theh u-boot boot countdown such that the boot is
+stopped and the u-boot prompt is shown.
+
+At the prompt, do something like the following. Please adapt files names as
+required::
+
+  # fatload mmc 0 0x80f00000 fsl-s32g274a-evb.dtb
+  # fatload mmc 0 0x80ffffc0 l4re_vm-multi-p2p_s32g.uimage
+  # bootm 0x80ffffc0  - 0x80f00000
+
+The ``dtb`` should be available on the emmc already as it is the same as
+used for booting Linux.
+
+Copy the ``l4re_vm-multi-p2p_s32g.uimage`` file to the mmc first, for
+example, through Linux.
+
+Booting via Network
+-------------------
+
+u-boot can also be used to retrieve the uimage via TFTP. A typical workflow
+can be::
+
+  # dhcp
+  # fatload mmc 0 0x80f00000 fsl-s32g274a-evb.dtb
+  # tftpboot 0x80ffffc0 /path/on/your/tftp/server/l4re_vm-multi-p2p_s32g.uimage
+  # bootm 0x80ffffc0  - 0x80f00000
+
+You might also need to set the correct networking config, this depends on
+your board and the specific network cofniguration. For example::
+
+  # eqos physelect 4
+
+
