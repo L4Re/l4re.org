@@ -1,4 +1,4 @@
-Universal virtual machine monitor
+uvmm - Virtual Machine Monitor
 *********************************
 
 .. admonition:: Under Construction
