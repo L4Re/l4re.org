@@ -18,7 +18,7 @@ maintained by `Kernkonzept <https://www.kernkonzept.com>`_.
        <p class="topic-title">
          <a href="getting_started/index.html">Getting Started</a>
        </p>
-       Learn how to build an run L4Re on different platforms.
+       Learn how to build a run L4Re on different platforms.
      </aside>
 
      <aside class="topic">

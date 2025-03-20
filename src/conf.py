@@ -55,6 +55,7 @@ html_logo = "https://l4re.org/gfx/L4Re_rgb_logo_quadratisch.png"
 #html_baseurl = "src"
 
 #html_theme_options = {
+#   "github_url": "https://github.com/l4re",
 #   "logo": {
 #      "image_light": "_static/L4Re_logo_quer.svg",
 #      "image_dark": "_static/L4Re_logo_quer_invertiert.svg",
