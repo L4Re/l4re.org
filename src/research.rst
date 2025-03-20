@@ -9,6 +9,10 @@ L4Re has its origins in research, starting around 1997.
 
 Research papers on L4Re-related topics:
 
+A Perfect Fit? – Towards Containers on Microkernels
+  Till Miemietz, Viktor Reusch, Matthias Hille, Max Kurze, Adam Lackorzyński, Michael Roitzsch, Hermann Härtig |br|
+  *10th International Workshop on Container Technologies and Container Clouds (WoC), December 2024* |br|
+  `DOI <https://doi.org/10.1145/3702637.3702957>`__
 
 FFMK: An HPC OS based on the L4Re Microkernel
   Carsten Weinhold, Adam Lackorzynski, Hermann Härtig |br|
