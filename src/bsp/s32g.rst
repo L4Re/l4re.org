@@ -24,7 +24,7 @@ Booting with u-boot
 
 The standard BSP by NXP comes with u-boot.
 
-To boot L4Re, intercept theh u-boot boot countdown such that the boot is
+To boot L4Re, intercept the u-boot boot countdown such that the boot is
 stopped and the u-boot prompt is shown.
 
 At the prompt, do something like the following. Please adapt files names as
