@@ -51,8 +51,8 @@ can be::
   # tftpboot 0x80ffffc0 /path/on/your/tftp/server/l4re_vm-multi-p2p_s32g.uimage
   # bootm 0x80ffffc0  - 0x80f00000
 
-You might also need to set the correct networking config, this depends on
-your board and the specific network cofniguration. For example::
+You might also need to set the correct networking configuration, this
+depends on your board and the specific network configuration. For example::
 
   # eqos physelect 4
 
