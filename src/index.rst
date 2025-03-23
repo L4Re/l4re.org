@@ -83,6 +83,7 @@ Real time
    tutorials/index
    detailed_introduction/index
    bsp/index
+   use-cases/index
 
 .. toctree::
    :hidden:

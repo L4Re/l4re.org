@@ -57,3 +57,7 @@ depends on your board and the specific network configuration. For example::
   # eqos physelect 4
 
 
+Additional Resources
+====================
+
+- :ref:`use-case-emmc-s32g`
