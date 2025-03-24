@@ -52,12 +52,11 @@ html_static_path = ['../_static']
 html_last_updated_fmt = "%Y-%m-%d"
 html_css_files = ["css/custom.css", "css/asciinema-player.css"]
 html_logo = "https://l4re.org/gfx/L4Re_rgb_logo_quadratisch.png"
-#html_baseurl = "src"
 
-#html_theme_options = {
-#   "github_url": "https://github.com/l4re",
-#   "logo": {
-#      "image_light": "_static/L4Re_logo_quer.svg",
-#      "image_dark": "_static/L4Re_logo_quer_invertiert.svg",
-#   }
-#}
+html_theme_options = {
+    "repository_url": "https://github.com/l4re/l4re.org",
+    "use_source_button": True,
+    "path_to_docs": "src",
+    "use_edit_page_button": True,
+    "use_issues_button": True,
+}
