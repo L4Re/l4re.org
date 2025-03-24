@@ -56,7 +56,7 @@ The script references two files for configuring the io component.
 ``hw_devices.io`` is the hardware device configuration of the S32G, as found
 `here <https://github.com/kernkonzept/io/tree/master/io/configs/plat-s32g/hw_devices.io>`_.
 
-``vbus.io`` creates a virtual bus for the emmc drvier, using this content:
+``vbus.io`` creates a virtual bus for the emmc driver, using this content:
 
 
 .. sourcecode:: lua

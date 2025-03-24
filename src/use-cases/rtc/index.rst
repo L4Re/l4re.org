@@ -48,7 +48,7 @@ The script references two files for configuring the io component.
 ``x86-legacy.devs`` describes some of the always existing devices in an x86-based
 system and can be found `here <https://github.com/kernkonzept/io/tree/master/io/configs/x86-legacy.devs>`_.
 
-``vbus.io`` creates a virtual bus for the emmc drvier, using this content:
+``vbus.io`` creates a virtual bus for the rtc service, using this content:
 
 .. sourcecode:: lua
    :linenos:
