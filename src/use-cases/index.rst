@@ -5,3 +5,4 @@ Use cases
    :maxdepth: 1
 
    s32g-emmc/index
+   rtc/index
