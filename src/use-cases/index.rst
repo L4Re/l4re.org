@@ -6,3 +6,4 @@ Use cases
 
    s32g-emmc/index
    rtc/index
+   net-swt-curl/index
