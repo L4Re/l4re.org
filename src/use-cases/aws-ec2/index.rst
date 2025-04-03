@@ -55,14 +55,15 @@ https://ipxe.org/howto/ec2 to configure your instance accordingly by picking
 the right AMI for your architecture choice and EC2 region.
 
 As described on the iPXE page, the "user state" of an instance needs to have
-an iPXE script like this, for arm64 / Graviton::
+an iPXE script like this, for arm64::
 
    #!ipxe
-   kernel http://l4re.org/download/snapshots/pre-built-images/arm64/l4re_hello_sbsa.efi
+   kernel http://l4re.org/download/snapshots/pre-built-images/arm64/l4re_vm-multi-p2p_sbsa.efi
    boot
 
-This example uses the "hello" image from the pre-built image selection which
-should run in any Graviton instance type, both VMs and "metal".
+This example uses the "vm-multi-p2p" image from the pre-built image
+selection which uses virtualization and thus requires a "metal" Graviton
+instance.
 
 For x86-64 the approach is similar.
 
