@@ -14,6 +14,11 @@ A Perfect Fit? – Towards Containers on Microkernels
   *10th International Workshop on Container Technologies and Container Clouds (WoC), December 2024* |br|
   `DOI <https://doi.org/10.1145/3702637.3702957>`__
 
+Safety Certification with the Open Source Microkernel-Based Operating System L4Re
+  Kai Lampka, Joel Thurlby, Adam Lackorzynski, Marcus Hähnel |br|
+  Computer Safety, Reliability, and Security - 41st International Conference, SAFECOMP 2022, Munich, Germany, September 6-9, 2022 |br|
+  `DOI <https://doi.org/10.1007/978-3-031-14835-4_3>`__
+
 FFMK: An HPC OS based on the L4Re Microkernel
   Carsten Weinhold, Adam Lackorzynski, Hermann Härtig |br|
   *In Robert W. Wisniewski, Balazs Gerofi, Rolf Riesen, Yutaka Ishikawa (eds)
