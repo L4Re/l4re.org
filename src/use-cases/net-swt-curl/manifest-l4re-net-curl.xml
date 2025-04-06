@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote
+    name="origin"
+    fetch="https://github.com/kernkonzept"
+  />
+  <default
+    revision="master"
+    remote="origin"
+  />
+  <project name="acpica" path="l4/pkg/acpica" />
+  <project name="bootstrap" path="l4/pkg/bootstrap" />
+  <project name="cons" path="l4/pkg/cons" />
+  <project name="drivers-frst" path="l4/pkg/drivers-frst" />
+  <project name="fiasco" path="fiasco" />
+  <project name="io" path="l4/pkg/io" />
+  <project name="l4_virtio-net-switch" path="l4/pkg/virtio-net-switch" />
+  <project name="l4re-core" path="l4/pkg/l4re-core" />
+  <project name="l4virtio" path="l4/pkg/l4virtio" />
+  <project name="mk" path="l4" />
+  <project name="zlib" path="l4/pkg/zlib" />
+  <project name="../l4re/lwip" path="l4/pkg/lwip" revision="main" />
+  <project name="../l4re/curl" path="l4/pkg/curl" revision="main" />
+  <project name="../l4re/zstd" path="l4/pkg/zstd" revision="main" />
+  <project name="../l4re/ixl" path="l4/pkg/ixl" revision="main" />
+</manifest>

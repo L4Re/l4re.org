@@ -43,7 +43,7 @@ driver via virtio-net, it needs a networking stack. We use ``lwIP``, which
 has also been brought to L4Re with appropriate connectors for virtio-net.
 
 Building ixl and virtio-net-switch
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------
 
 The switch has a compile-time configuration that needs to be enabled such
 that the functionality for network device drivers is included. Please have
@@ -52,7 +52,7 @@ enabled option in the L4Re configuration.
 
 
 Building curl
-^^^^^^^^^^^^^
+-------------
 
 Please have
 `curl <https://github.com/l4re/curl>`_,
@@ -64,49 +64,57 @@ next to the standard L4Re packages.
 Compile everything.
 
 
-Starting the network switch and curl
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Setting up the scenario
+-----------------------
 
 The following ned script starts the network switch together with curl,
 downloading a web page.
 
-.. sourcecode:: lua
+.. literalinclude:: virtio-net-switch-drv-example.cfg
+   :language: lua
    :linenos:
-
-   -- vim:ft=lua
-
-   local L4 = require("L4");
-   local ld = L4.default_loader;
-
-   local vbus_eth  = ld:new_channel();
-
-   ld:start(
-       {
-           caps = {
-               sigma0   = L4.Env.sigma0;
-               icu      = L4.Env.icu;
-               iommu    = L4.Env.iommu;
-               ethdevs  = vbus_eth:svr();
-           },
-       },
-       "rom/io rom/ixl.vbus"
-   );
-
-   local vswitch = ld:new_channel();
-
-   ld:start(
-       { caps = { vbus = vbus_eth, svr = vswitch:svr(); }, },
-       "rom/l4vio_switch");
-
-   ld:start(
-      { caps = { virtnet = vswitch:create(0), etc = L4.Env.rom }, },
-      "rom/curl -s http://ftp.de.debian.org/debian/",
-      { IFCONFIG_IP4_vn0="dhcp" });
-
+   :caption:
 
 Please find a possible ixl.vbus `here <https://github.com/L4Re/ixl/blob/main/assets/ixl.vbus>`_.
 
-A ``resolv.conf`` file also needs to be supplied with the following content::
+A ``resolv.conf`` file also needs to be supplied with the following content:
 
-   nameserver 10.0.2.3
+.. literalinclude:: resolv.conf
+   :caption:
+
+A module.list entry looks like this:
+
+.. literalinclude:: modules.list
+   :caption:
+
+Put all the files in a directory picked up by L4Re's image generation.
+
+Run it with QEMU
+----------------
+
+The use-case can be run like this in one commend. Of course, variables can
+also be put into your ``Makeconf.boot`` file, shortening the below command
+to just ``make qemu E=virtio-net-switch-drv-example``.
+
+.. sourcecode:: shell
+
+   make qemu E=virtio-net-switch-drv-example \
+        MODULES_LIST=$PWD/modules.list \
+        MODULE_SEARCH_PATH=$PWD/fiasco/build \
+        QEMU_OPTIONS="-serial stdio -vnc none -m 1g -netdev user,id=net1 -device e1000,netdev=net1"
+
+Build'n'Run Script
+------------------
+
+The following `shell script <https://raw.githubusercontent.com/L4Re/l4re.org/refs/heads/main/src/use-cases/net-swt-curl/build_and_run.sh>`_
+summarizes the above steps. Of course you can build this setup from your
+existing source tree, given all the needed repositories, as described above,
+are available. The files downloaded
+are exactly the ones from this pages (given you are looking at a version
+generated out of the referenced files).
+
+.. literalinclude:: build_and_run.sh
+   :language: shell
+   :linenos:
+
 

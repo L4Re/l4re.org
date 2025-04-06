@@ -1,0 +1,10 @@
+entry virtio-net-switch-drv-example
+roottask moe rom/virtio-net-switch-drv-example.cfg
+module l4re
+module ned
+module io
+module l4vio_switch
+module curl
+module virtio-net-switch-drv-example.cfg
+module resolv.conf
+module io/ixl.vbus
