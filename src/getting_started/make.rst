@@ -89,7 +89,7 @@ The directory structure described in this guide is as follows:
 
    Even though the source directories are named ``l4/`` and ``fiasco/`` for
    historic reasons we will refer to the them as "L4Re" and
-   "The L4re Microkernel" respectively for the emainder of this guide.
+   "the L4Re Microkernel" respectively for the remainder of this guide.
 
 Firstly, we create environment variables for the mentioned directories to
 simplify further steps in the instructions. They are purely a help for the
