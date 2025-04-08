@@ -27,6 +27,8 @@ standalone BSPs to device-tree ones as we come across them.
 
 The Arm SBSA BSP uses ACPI and works on all SBSA-compliant platforms.
 
+There is also a BSP porting guide to enable new platforms for L4Re: :doc:`porting-guide`
+
 
 BSPs
 ----
@@ -34,6 +36,7 @@ BSPs
 .. toctree::
    :maxdepth: 1
 
+   porting-guide.rst
    rpi.rst
    s32g.rst
    zynqmp.rst
