@@ -126,6 +126,8 @@ hint on where to get the included header file from:
    PKGDIR           ?= ../..
    L4DIR            ?= $(PKGDIR)/../..
 
+   PRIVATE_INCDIR   += $(SRC_DIR)/../include
+
    TARGET           = hello
    SRC_C            = main.c greeting.c
 
