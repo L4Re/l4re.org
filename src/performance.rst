@@ -45,6 +45,10 @@ is used. On x86, the fixed-function counters are used.
 | NXP S32G2 64bit | Arm Cortex-A53 | 661                | 770                 | 228                |              |
 | - EL2           |                |                    |                     |                    |              |
 +-----------------+----------------+--------------------+---------------------+--------------------+--------------+
+| Ampere Altra (32| Arm Neoverse-N1| 298                | 440                 | 148                |              |
+| Cores) 64bit -  |                |                    |                     |                    |              |
+| EL2             |                |                    |                     |                    |              |
++-----------------+----------------+--------------------+---------------------+--------------------+--------------+
 
 .. [#1] Values reflect the PMC's fixed-function counters 2 (TSC without halt) /
    1 (clocks unhalted) / 0 (instructions retired)
