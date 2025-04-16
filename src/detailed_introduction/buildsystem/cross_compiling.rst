@@ -77,7 +77,7 @@ Instead of using different sources, we have to configure the build.
 
 .. sourcecode:: shell
 
-    cd $L4RE_OBJDIR_AMD64
+    cd $L4RE_OBJDIR_ARM64
     make config    # Select ARM architecture, Cortex-A57 and QEMU virt platform
 
 We select the Target Architecture "ARM64 Architecture (AArch64)". This
@@ -91,7 +91,7 @@ Building L4Re is now possible by calling ``make`` inside the build directory:
 
 .. sourcecode:: shell
 
-    cd $L4RE_OBJDIR_AMD64
+    cd $L4RE_OBJDIR_ARM64
     make -j9
 
 Cross-Compiling The L4Re Microkernel
