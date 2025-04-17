@@ -114,7 +114,11 @@ This gives step-by-step instructions on how to build L4Re for the Rpi.
 
   Please use ``make -j8`` or similar to speed up building.
 
-* After a successful build multiple so-called images have been built for the
+* Build the images::
+
+      make build_images
+
+* If all went well multiple so-called images have been built for the
   rpi4 platform. An image contains everything to run for a particular setup.
   Images are located in ``obj/l4/arm64/images/bootstrap*rpi4*.elf``.
 
