@@ -1,42 +1,40 @@
 Detailed Introduction
 *********************
 
-The L4Re Operating System Framework consists of a small kernel -- a microkernel
--- and a user-level infrastructure that includes basic :doc:`services
-<services/index>` such as program loading and memory management up to virtual
-machine handling. L4Re also provides the environment for applications through
-:doc:`libraries <libraries/index>` containing process-local and cross-process
-functionality. Go to :doc:`architecture_concepts/index` to learn about the
-underlying concepts.
+L4Re is an operating system and a hypervisor as it runs both L4Re
+applications and virtual machines.
 
-L4Re's :doc:`buildsystem/index` utilises `Gnu Make
+It is built on a small kernel -- a microkernel -- and a user-level
+infrastructure composed out of small components with distinct functions (see
+:doc:`services <services/index>`). Please refer to
+:doc:`architecture_concepts/index` to learn about the underlying concepts.
+
+We call it **L4Re Operating System Framework** as it provides the building
+blocks to construct tailored systems for specific use-cases.
+
+The L4Re Operating System Framework:
+
+* supports many hardware platforms,
+* runs on Arm, MIPS, RISC-V, and x86 architectures
+* is open-source software
+
+The functionality features:
+
+* A C library with pthreads support and shared libraries
+* *libstdc++*, fully-featured C++ standard library
+* C, C++, Ada and Rust (work in progress) environments
+* Client/Server and communication frameworks
+* Virtual file-system infrastructure
+* Drivers, such as UART, NVMe, AHCI, network
+* Scriptable program and system management using Lua
+* Virtual machines and Hypervisor
+* Platform and device management, including ACPI, PCIe, device tree
+* Input/output multiplexing, including graphics
+
+L4Re's :doc:`buildsystem/index` utilises `GNU Make
 <https://www.gnu.org/software/make/>`_ to provide high customizability for the
 user when it comes to choosing compilers and target platforms to cross-compile
 for.
-
-The L4Re Operating System Framework is:
-
-* multi-platform and multi-architecture, including x86, ARM, MIPS, and RISC-V
-* modular
-* open-source
-* virtualization-aware and flexible by providing multiple virtualization options
-
-:doc:`libraries/index`, process-local and cross-process
-functionality:
-
-* C library with pthreads and shared libraries
-* libstdc++, fully featured STL
-* Virtual file-system infrastructure
-* C and C++ environment
-* Client/Server and communication frameworks
-
-:doc:`services/index`:
-
-* Scriptable program and system management
-* Input/Output drivers
-* Virtual machines and Hypervisor
-* Platform and device management, including ACPI and PCIe
-* Input/output multiplexing, including graphics
 
 
 .. toctree::
