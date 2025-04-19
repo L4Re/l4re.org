@@ -66,3 +66,21 @@ least, parallel building can be enabled within directories with ``PL=``.
 Call ``make`` without ``-j`` like this::
 
     $ make PL=8
+
+Building Intermediate Files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Within the ``OBJ-*`` directories in the build tree, intermediate ``.i``
+pre-processed files and ``.S`` assembly files can be generated, like this::
+
+   pkg/l4re-core/moe/server/src/OBJ-arm64_armv8a-std-l4f$ make main.i
+   pkg/l4re-core/moe/server/src/OBJ-arm64_armv8a-std-l4f$ make main.S
+
+Inspecting Disassembly
+^^^^^^^^^^^^^^^^^^^^^^
+
+Sometimes it is useful to look at the disassembly of a program. There is a
+shortcut for this::
+
+   pkg/l4re-core/moe/server/src/OBJ-arm64_armv8a-std-l4f$ make disasm
+
