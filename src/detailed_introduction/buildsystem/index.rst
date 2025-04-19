@@ -26,4 +26,5 @@ troubles <troubleshooting>` you encountered until now.
    cross_compiling
    clang
    updating
+   using
    troubleshooting
