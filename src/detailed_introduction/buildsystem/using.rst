@@ -1,11 +1,12 @@
 Using the Build System
 ======================
 
-L4Re uses `make` for building all artifacts of the system.
+L4Re uses `make <https://www.gnu.org/software/make>`_ for building all artifacts
+of the system.
 
-While it is always safe and good to just issue ``make`` from the root directory of
-your build tree, this takes longer than needed if not building everything is
-needed. For example, this is the case if you are working on a specific
+While it is always safe and valid to just issue ``make`` from the root directory
+of your build tree, this takes longer than needed when building everything is
+not required. For example, this is the case if you are working on a specific
 package.
 
 There are a couple of options to only build what is of interest.
@@ -30,13 +31,12 @@ This is useful if you are working on a specific package and just want to
 recompile this specific code.
 
 The build system also has a shortcut for building multiple directories at
-once like with make's ``-C``. For example, if you are working on library and
-need to build the library as well as the program using the library, you can
-do::
+once like with make's ``-C``. For example, if you are working on a library and
+need to build the library as well as the program using it, you can do::
 
     build-root-dir$ make S=pkg/mylib/lib/src:pkg/myprog
 
-This will just build those two directories. 
+This will just build those two directories.
 
 Building from the source tree
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -49,21 +49,21 @@ object tree, do this with ``O=``::
 Build Anywhere
 ^^^^^^^^^^^^^^
 
-The L4Re build system has Makefiles everywhere, so you can also build
-everywhere, from both the source tree as well as object tree. The build
-system will descent to sub-directories.
+The L4Re build system has Makefiles everywhere, so you can also start the build
+process from everywhere. This includes both the source tree as well as the
+object tree. The build system will descent to sub-directories.
 
 
 Parallel Building
 ^^^^^^^^^^^^^^^^^
 
-``make`` uses the ``-j`` parameter with a number of parallelism it should
-use. So using ``make -j8`` is a good choice if you happen to have an 8 core
-machine.
+``make`` uses the ``-j`` parameter with a number indicating the parallelism it
+should use. So using ``make -j8`` is a good choice if you happen to have an 8
+core machine.
 
-To have a sorted build output but still benefit from parallel builds at
-least, parallel building can be enabled within directories with ``PL=``.
-Call ``make`` without ``-j`` like this::
+To avoid mixing output of different packages but still benefit from parallel
+builds of individual object files of a package, parallel building can be
+enabled with the ``PL=`` option. Call ``make`` without ``-j`` like this::
 
     $ make PL=8
 
@@ -84,3 +84,8 @@ shortcut for this::
 
    pkg/l4re-core/moe/server/src/OBJ-arm64_armv8a-std-l4f$ make disasm
 
+For directories with multiple targets this will automatically disassemble the
+first. Specify ``DABIN`` to choose another one in these instances. For example
+to disassemble ``liblua.so`` instead of ``liblua.a`` use::
+
+   pkg/l4re-core/lua/lib/build/OBJ-arm64_armv8a-std-l4f$ make disasm DABIN=liblua.so
