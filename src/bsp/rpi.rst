@@ -202,7 +202,7 @@ Steps to setup networking booting are:
 
 * Setup a DHCP and TFTP server as described above.
 * Place the boot/firmware directory on the TFTP server. ``config.txt`` needs to contain the ``kernel=`` line pointing to the file to be booted from the same TFTP server directory.
-* Boot the rpi5 without an SD-Card (which then should boot via TFTP if not other boot option was found)
+* Boot the rpi5 without an SD-Card (which then should boot via TFTP if no other boot option was found)
 
 More information to follow...
 
