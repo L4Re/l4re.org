@@ -163,12 +163,24 @@ Running an image stored on the SD-card of the Rpi directly
 * Edit config.txt and replace the ``kernel=`` line with ``kernel=bootstrap.raw``
 * Reboot the Rpi
 
-Booting over network with up to Rpi4
-====================================
+Additional Information
+======================
+
+Instead of ELF files you can also use uimage files.
+
+Booting over network
+====================
 
 Booting via network means that you generate your bootstrap image on some other system, e.g. your development system, and load it via network onto the Rpi and start it. This avoids juggling SD-cards between the Rpi and your development system, and is the generally preferred way of development.
 
 Besides connecting your Rpi to your network via the integrated Ethernet port, you need a TFTP-Server in your network that serves the bootstrap image to the Rpi. tftp-hpa and dnsmasq are good and established choices. Please refer to their documentation or generally to the Internet to set one of those up. If in doubt, use dnsmasq.
+
+Network booting is different between Rpi versions.
+
+Network booting up to Rpi 4
+---------------------------
+
+With the Rpi up to version 4, we use u-boot for network booting.
 
 Generally it is only needed to have TFTP working, DHCP is optional, as IP addresses can be set within u-boot, but it is recommended to have it. dnsmasq offers both TFTP and DHCP services.
 
@@ -191,8 +203,8 @@ Loading the image works similarly to loading it from the SD-card::
 
          U-Boot> tftpboot 0x0c000000 /path/on/the/tftp/server/bootstrap.elf; bootelf
 
-Booting over network with Rpi5
-==============================
+Network booting with Rpi 5
+--------------------------
 
 With the Rpi5 the peripheral structure of the hardware changed, such that
 network functionality in u-boot is not available. However, the Raspberry
@@ -201,13 +213,14 @@ firmware can boot via TFTP itself.
 Steps to setup networking booting are:
 
 * Setup a DHCP and TFTP server as described above.
-* Place the boot/firmware directory on the TFTP server. ``config.txt`` needs to contain the ``kernel=`` line pointing to the file to be booted from the same TFTP server directory.
-* Boot the rpi5 without an SD-Card (which then should boot via TFTP if no other boot option was found)
+* Use the Ethernet port.
+* Put the contents of the firmware directory from the SD-Card (typically in ``/boot`` or ``/boot/firmware``) on the TFTP server. ``config.txt`` needs to contain the ``kernel=`` line pointing to the file to be booted from the same TFTP server directory.
+* Boot the rpi5 without an SD-Card (which then should boot via TFTP if no other boot option was found).
+* Watch the output on the serial with the detailed output of the firmware.
 
-More information to follow...
+More details:
 
-
-Additional Information
-======================
-
-Instead of ELF files you can also use uimage files.
+* Change the TFTP path to be used with ``rpi-eeprom-config --edit`` from
+  within the Linux system running on the Rpi.
+* Modify the boot order if needed via ``raspi-config`` or
+  ``rpi-eeprom-config`` (more fine granular).
