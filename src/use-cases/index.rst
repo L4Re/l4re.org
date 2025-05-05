@@ -8,3 +8,4 @@ Use cases
    rtc/index
    net-swt-curl/index
    aws-ec2/index
+   usb/index
