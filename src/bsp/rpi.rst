@@ -163,8 +163,8 @@ Running an image stored on the SD-card of the Rpi directly
 * Edit config.txt and replace the ``kernel=`` line with ``kernel=bootstrap.raw``
 * Reboot the Rpi
 
-Booting over network
-====================
+Booting over network with up to Rpi4
+====================================
 
 Booting via network means that you generate your bootstrap image on some other system, e.g. your development system, and load it via network onto the Rpi and start it. This avoids juggling SD-cards between the Rpi and your development system, and is the generally preferred way of development.
 
@@ -190,6 +190,22 @@ address of the system where the TFTP server is running.
 Loading the image works similarly to loading it from the SD-card::
 
          U-Boot> tftpboot 0x0c000000 /path/on/the/tftp/server/bootstrap.elf; bootelf
+
+Booting over network with Rpi5
+==============================
+
+With the Rpi5 the peripheral structure of the hardware changed, such that
+network functionality in u-boot is not available. However, the Raspberry
+firmware can boot via TFTP itself.
+
+Steps to setup networking booting are:
+
+* Setup a DHCP and TFTP server as described above.
+* Place the boot/firmware directory on the TFTP server. ``config.txt`` needs to contain the ``kernel=`` line pointing to the file to be booted from the same TFTP server directory.
+* Boot the rpi5 without an SD-Card (which then should boot via TFTP if not other boot option was found)
+
+More information to follow...
+
 
 Additional Information
 ======================
