@@ -16,9 +16,10 @@ two address spaces. A syscall is also an IPC but only communicates with the
 kernel.
 
 The following table provides IPC performance numbers for a single IPC on
-various popular platforms. To perform the measurement, the L4Re microkernel has
-been configured in its performance configuration ``CONFIG_PERFORMANCE=y``,
-i.e., without assertions.
+various popular platforms (average over multiple ten thousand calls). To
+perform the measurement, the L4Re microkernel has been configured in its
+performance configuration ``CONFIG_PERFORMANCE=y``, i.e., without
+assertions.
 
 The source code of the benchmark program can be found `here
 <https://github.com/l4re/ipcbench/>`_. The images used to measure those are
