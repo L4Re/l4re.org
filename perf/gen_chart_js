@@ -1,0 +1,129 @@
+#! /usr/bin/perl -W
+
+use strict;
+use warnings;
+
+my @file;
+while (<>)
+  {
+    push @file, $_;
+  }
+
+my $benchID;
+my $benchProcessor;
+my $benchAuxDesc = "";
+
+foreach (@file)
+  {
+    $benchID = $1        if /^BenchID:\s+(.+)/;
+    $benchProcessor = $1 if /^BenchProcessor:\s+(.+)/;
+    $benchAuxDesc = $1   if /^BenchAuxDesc:\s+(.+)/;
+  }
+
+die "No benchID" unless defined $benchID;
+die "No benchProcessor" unless defined $benchProcessor;
+
+my $num_cores;
+my $is_x86_triple_vals = 0;
+
+$is_x86_triple_vals = grep { m,tsc-units/IPC, } @file;
+
+sub read_dataset
+{
+  my $tag = shift;
+  my $unit = shift;
+  my $label = shift;
+  my $color = shift;
+
+  my %d;
+  $d{string} .= "{ label: '$label ($unit)',";
+  $d{string} .= "data: [\n";
+  # read first in @values to get it sorted such that connecting lines in the
+  # graph goes from left to right
+  my @values;
+  foreach (@file)
+    {
+      $values[$1] = $2 if (/^$tag.*\| CPU\s+(\d+).+\s(\d+)\s+$unit/);
+    }
+
+  if (defined $num_cores)
+    {
+      die "No the same number of cores" if $num_cores != $#values + 1;
+    }
+  $num_cores = $#values + 1;
+
+  for (my $i = 0; $i < $num_cores; ++$i)
+    {
+      $d{string} .= "            { x: $i, y: $values[$i] },\n";
+    }
+  $d{string} .= "],\n";
+  $d{string} .= "borderColor: '$color',\n";
+  $d{string} .= "backgroundColor: '$color',\n";
+  $d{string} .= "stepSize: 1,\n";
+  #$d{string} .= "fill: false,\n";
+  #$d{string} .= "tension: 0.2\n";
+  $d{string} .= "}";
+  return %d;
+}
+
+my %dataset1;
+my %dataset2;
+if ($is_x86_triple_vals)
+  {
+    %dataset1 = read_dataset("ipc:PL", "clk-units/IPC", "IPC",           "rgba(255, 99, 132, 0.2)");
+    %dataset2 = read_dataset("sc:PL",  "clk-units/syscall", "Syscalls",  "rgba(10, 20, 230, 0.2)");
+  }
+else
+  {
+    %dataset1 = read_dataset("ipc:PL", "cpu-cycles/IPC",     "IPC",      "rgba(255, 99, 132, 0.2)");
+    %dataset2 = read_dataset("sc:PL",  "cpu-cycles/syscall", "Syscalls", "rgba(10, 20, 230, 0.2)");
+  }
+
+
+#my $rand = `uuidgen  | md5sum | cut -d' ' -f1`;
+#chomp $rand;
+
+my $baux = "";
+$baux = " ($benchAuxDesc)" if $benchAuxDesc;
+
+my $units = "Units";
+
+# Output
+print <<_EOF
+  Processor: $benchProcessor$baux<br/>
+  Cores: $num_cores
+  <canvas id="myChart_$benchID"></canvas>
+  <script>
+    const ctx_$benchID = document.getElementById('myChart_$benchID').getContext('2d');
+    const myChart_$benchID = new Chart(ctx_$benchID, {
+      type: 'line',
+      data: {
+        datasets: [
+$dataset1{string},
+$dataset2{string},
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            type: 'linear',
+            position: 'bottom',
+            title: {
+              display: true,
+              text: 'Cores'
+            },
+	    ticks: { stepSize: 1 },
+          },
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: '$units'
+            }
+          }
+        }
+      }
+    });
+  </script>
+_EOF

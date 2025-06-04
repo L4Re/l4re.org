@@ -1,0 +1,45 @@
+BenchID: X8664_N100_ALL
+BenchProcessor: Intel(R) N100 at 806MHz
+BenchAuxDesc:
+
+IPC within one address space:
+ipc:1AS | CPU  0 done 600000 IPCs in 334522415 insnret-units, 557 insnret-units/IPC
+ipc:1AS | CPU  0 done 600000 IPCs in 373296348 clk-units, 622 clk-units/IPC
+ipc:1AS | CPU  0 done 600000 IPCs in 104041455 tsc-units, 173 tsc-units/IPC
+IPC between two address spaces:
+ipc:2AS | CPU  0 done 600000 IPCs in 367856522 insnret-units, 613 insnret-units/IPC
+ipc:2AS | CPU  0 done 600000 IPCs in 833064358 clk-units, 1388 clk-units/IPC
+ipc:2AS | CPU  0 done 600000 IPCs in 234272010 tsc-units, 390 tsc-units/IPC
+IPC within one address space, on all cores in parallel:
+ipc:PL  | Found 4 CPUs. Measuring core-local IPC latency on all CPUs.
+ipc:PL  | CPU  0 done 600000 IPCs in 334522057 insnret-units, 557 insnret-units/IPC
+ipc:PL  | CPU  0 done 600000 IPCs in 373038297 clk-units, 621 clk-units/IPC
+ipc:PL  | CPU  0 done 600000 IPCs in 104161176 tsc-units, 173 tsc-units/IPC
+ipc:PL  | CPU  1 done 600000 IPCs in 334521005 insnret-units, 557 insnret-units/IPC
+ipc:PL  | CPU  1 done 600000 IPCs in 374800934 clk-units, 624 clk-units/IPC
+ipc:PL  | CPU  1 done 600000 IPCs in 104652450 tsc-units, 174 tsc-units/IPC
+ipc:PL  | CPU  3 done 600000 IPCs in 334519607 insnret-units, 557 insnret-units/IPC
+ipc:PL  | CPU  3 done 600000 IPCs in 374805872 clk-units, 624 clk-units/IPC
+ipc:PL  | CPU  3 done 600000 IPCs in 104653836 tsc-units, 174 tsc-units/IPC
+ipc:PL  | CPU  2 done 600000 IPCs in 334521005 insnret-units, 557 insnret-units/IPC
+ipc:PL  | CPU  2 done 600000 IPCs in 374948048 clk-units, 624 clk-units/IPC
+ipc:PL  | CPU  2 done 600000 IPCs in 104693442 tsc-units, 174 tsc-units/IPC
+Syscall benchmark:
+sc:singl| CPU  0 done 300000 syscalls in 44105524 insnret-units, 147 insnret-units/syscall
+sc:singl| CPU  0 done 300000 syscalls in 56242358 clk-units, 187 clk-units/syscall
+sc:singl| CPU  0 done 300000 syscalls in 25966983 tsc-units, 86 tsc-units/syscall
+Syscall benchmark, on all cores in parallel:
+sc:PL   | Found 4 CPUs. Measuring syscall latency on all CPUs.
+sc:PL   | CPU  2 done 300000 syscalls in 44102340 insnret-units, 147 insnret-units/syscall
+sc:PL   | CPU  2 done 300000 syscalls in 56453281 clk-units, 188 clk-units/syscall
+sc:PL   | CPU  2 done 300000 syscalls in 15734103 tsc-units, 52 tsc-units/syscall
+sc:PL   | CPU  0 done 300000 syscalls in 44102504 insnret-units, 147 insnret-units/syscall
+sc:PL   | CPU  0 done 300000 syscalls in 56280868 clk-units, 187 clk-units/syscall
+sc:PL   | CPU  0 done 300000 syscalls in 15686034 tsc-units, 52 tsc-units/syscall
+sc:PL   | CPU  3 done 300000 syscalls in 44102340 insnret-units, 147 insnret-units/syscall
+sc:PL   | CPU  3 done 300000 syscalls in 56438915 clk-units, 188 clk-units/syscall
+sc:PL   | CPU  3 done 300000 syscalls in 15730092 tsc-units, 52 tsc-units/syscall
+sc:PL   | CPU  1 done 300000 syscalls in 44102340 insnret-units, 147 insnret-units/syscall
+sc:PL   | CPU  1 done 300000 syscalls in 56432447 clk-units, 188 clk-units/syscall
+sc:PL   | CPU  1 done 300000 syscalls in 15728286 tsc-units, 52 tsc-units/syscall
+Benchmarks done.
