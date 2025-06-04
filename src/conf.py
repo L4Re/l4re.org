@@ -50,6 +50,7 @@ doxylink = {
 html_theme = 'sphinx_book_theme'
 html_static_path = ['../_static']
 html_last_updated_fmt = "%Y-%m-%d"
+# todo: do not load all js  all the time
 html_css_files = ["css/custom.css", "css/asciinema-player.css"]
 html_logo = "https://l4re.org/gfx/L4Re_rgb_logo_quadratisch.png"
 
