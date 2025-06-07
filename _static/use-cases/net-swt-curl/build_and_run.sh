@@ -2,12 +2,12 @@
 
 set -xe
 
-BASERAWURL=https://l4re.org/_static/use-cases/net-swt-curl/
+BASEURL=https://l4re.org/_static/use-cases/net-swt-curl/
 
 mkdir demo
 cd demo
 
-wget -q $BASERAWURL/manifest-l4re-net-curl.xml
+wget -q $BASEURL/manifest-l4re-net-curl.xml
 
 # Get sources
 git clone https://github.com/kernkonzept/ham.git
@@ -15,10 +15,10 @@ ham/ham init -f manifest-l4re-net-curl.xml
 ham/ham sync
 
 # Get individual files out of the page on l4re.org
-wget -q $BASERAWURL/modules.list
-wget -q $BASERAWURL/net-vswt-curl-example.cfg
-wget -q $BASERAWURL/resolv.conf
-wget -q $BASERAWURL/virtio-net-switch-drv-example.cfg
+wget -q $BASEURL/modules.list
+wget -q $BASEURL/net-vswt-curl-example.cfg
+wget -q $BASEURL/resolv.conf
+wget -q $BASEURL/virtio-net-switch-drv-example.cfg
 
 # Build the microkernel
 make -C fiasco -j8
