@@ -92,7 +92,7 @@ Put all the files in a directory picked up by L4Re's image generation.
 Run it with QEMU
 ----------------
 
-The use-case can be run like this in one commend. Of course, variables can
+The use-case can be run like this in one command. Of course, variables can
 also be put into your ``Makeconf.boot`` file, shortening the below command
 to just ``make qemu E=virtio-net-switch-drv-example``.
 
