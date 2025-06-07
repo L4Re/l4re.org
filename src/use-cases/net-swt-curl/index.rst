@@ -70,7 +70,7 @@ Setting up the scenario
 The following ned script starts the network switch together with curl,
 downloading a web page.
 
-.. literalinclude:: virtio-net-switch-drv-example.cfg
+.. literalinclude:: ../../../_static/use-cases/net-swt-curl/virtio-net-switch-drv-example.cfg
    :language: lua
    :linenos:
    :caption:
@@ -79,12 +79,12 @@ Please find a possible ixl.vbus `here <https://github.com/L4Re/ixl/blob/main/ass
 
 A ``resolv.conf`` file also needs to be supplied with the following content:
 
-.. literalinclude:: resolv.conf
+.. literalinclude:: ../../../_static/use-cases/net-swt-curl/resolv.conf
    :caption:
 
 A module.list entry looks like this:
 
-.. literalinclude:: modules.list
+.. literalinclude:: ../../../_static/use-cases/net-swt-curl/modules.list
    :caption:
 
 Put all the files in a directory picked up by L4Re's image generation.
@@ -106,14 +106,14 @@ to just ``make qemu E=virtio-net-switch-drv-example``.
 Build'n'Run Script
 ------------------
 
-The following `shell script <https://raw.githubusercontent.com/L4Re/l4re.org/refs/heads/main/src/use-cases/net-swt-curl/build_and_run.sh>`_
+The following `shell script <https://l4re.org/_static/use-cases/net-swt-curl/build_and_run.sh>`_
 summarizes the above steps. Of course you can build this setup from your
 existing source tree, given all the needed repositories, as described above,
 are available. The files downloaded
 are exactly the ones from this pages (given you are looking at a version
 generated out of the referenced files).
 
-.. literalinclude:: build_and_run.sh
+.. literalinclude:: ../../../_static/use-cases/net-swt-curl/build_and_run.sh
    :language: shell
    :linenos:
 

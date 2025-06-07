@@ -2,7 +2,7 @@
 
 set -xe
 
-BASERAWURL=https://raw.githubusercontent.com/L4Re/l4re.org/refs/heads/main/src/use-cases/net-swt-curl/
+BASERAWURL=https://l4re.org/_static/use-cases/net-swt-curl/
 
 mkdir demo
 cd demo
