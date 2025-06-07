@@ -73,19 +73,19 @@ downloading a web page.
 .. literalinclude:: ../../../_static/use-cases/net-swt-curl/virtio-net-switch-drv-example.cfg
    :language: lua
    :linenos:
-   :caption:
+   :caption: virtio-net-switch-drv-example.cfg
 
 Please find a possible ixl.vbus `here <https://github.com/L4Re/ixl/blob/main/assets/ixl.vbus>`_.
 
 A ``resolv.conf`` file also needs to be supplied with the following content:
 
 .. literalinclude:: ../../../_static/use-cases/net-swt-curl/resolv.conf
-   :caption:
+   :caption: resolv.conf
 
 A module.list entry looks like this:
 
 .. literalinclude:: ../../../_static/use-cases/net-swt-curl/modules.list
-   :caption:
+   :caption: modules.list
 
 Put all the files in a directory picked up by L4Re's image generation.
 
@@ -116,5 +116,6 @@ generated out of the referenced files).
 .. literalinclude:: ../../../_static/use-cases/net-swt-curl/build_and_run.sh
    :language: shell
    :linenos:
+   :caption: build_and_run.sh
 
 
