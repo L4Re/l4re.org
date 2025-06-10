@@ -69,7 +69,7 @@ Professional support
   more than 25 years ago in 1997 at the TU Dresden. The time has lead to a
   concentration of experience which by now is bundled at `Kernkonzept
   <https://www.kernkonzept.com>`_. Kernkonzept provides professional support
-  and consulting according all questions around L4Re.
+  and consulting for all questions around L4Re.
 
 
 .. toctree::
