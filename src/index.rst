@@ -43,11 +43,6 @@ Designed for safety and security
 From scratch
   L4Re has been designed and developed from scratch.
 
-Experience-rich
-  The first steps towards L4Re were made more than 25 years ago in 1997 at the
-  TU Dresden. The time has lead to a concentration of experience which by now
-  is bundled at `Kernkonzept <https://www.kernkonzept.com>`_.
-
 Open Source
   The L4Re Operating System Framework is an open source system from the
   beginning. This is a cornerstone for building secure and sovereign
@@ -68,6 +63,14 @@ Scalability
 Real time
    L4Re features a real-time scheduler and supports running real-time
    work loads in L4Re applications as well as virtual machines.
+
+Professional support
+  The developers and maintainers of L4Re did their first steps towards L4Re
+  more than 25 years ago in 1997 at the TU Dresden. The time has lead to a
+  concentration of experience which by now is bundled at `Kernkonzept
+  <https://www.kernkonzept.com>`_. Kernkonzept provides professional support
+  and consulting according all questions around L4Re.
+
 
 .. toctree::
    :hidden:
