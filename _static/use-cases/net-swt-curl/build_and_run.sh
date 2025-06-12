@@ -17,7 +17,7 @@ ham/ham sync
 # Get individual files out of the page on l4re.org
 wget -q $BASEURL/modules.list
 wget -q $BASEURL/resolv.conf
-wget -q $BASEURL/virtio-net-switch-drv-example.cfg
+wget -q $BASEURL/virtio-net-switch-drv-example.ned
 
 # Build the microkernel
 make -C fiasco -j8

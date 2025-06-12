@@ -70,10 +70,10 @@ Setting up the scenario
 The following ned script starts the network switch together with curl,
 downloading a web page.
 
-.. literalinclude:: ../../../_static/use-cases/net-swt-curl/virtio-net-switch-drv-example.cfg
+.. literalinclude:: ../../../_static/use-cases/net-swt-curl/virtio-net-switch-drv-example.ned
    :language: lua
    :linenos:
-   :caption: virtio-net-switch-drv-example.cfg
+   :caption: virtio-net-switch-drv-example.ned
 
 Please find a possible ixl.vbus `here <https://github.com/L4Re/ixl/blob/main/assets/ixl.vbus>`_.
 
