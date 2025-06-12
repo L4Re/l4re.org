@@ -1,4 +1,5 @@
 entry virtio-net-switch-drv-example
+kernel fiasco -serial_esc
 roottask moe rom/virtio-net-switch-drv-example.cfg
 module l4re
 module ned
@@ -7,4 +8,6 @@ module l4vio_switch
 module curl
 module virtio-net-switch-drv-example.cfg
 module resolv.conf
+module[arch=arm64] io/plat-arm_virt/hw_devices.io
+module[arch=arm] io/plat-arm_virt/hw_devices.io
 module io/ixl.vbus

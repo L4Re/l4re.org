@@ -16,7 +16,6 @@ ham/ham sync
 
 # Get individual files out of the page on l4re.org
 wget -q $BASEURL/modules.list
-wget -q $BASEURL/net-vswt-curl-example.cfg
 wget -q $BASEURL/resolv.conf
 wget -q $BASEURL/virtio-net-switch-drv-example.cfg
 

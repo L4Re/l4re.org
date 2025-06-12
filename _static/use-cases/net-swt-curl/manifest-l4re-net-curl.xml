@@ -19,6 +19,7 @@
   <project name="l4virtio" path="l4/pkg/l4virtio" />
   <project name="mk" path="l4" />
   <project name="zlib" path="l4/pkg/zlib" />
+  <project name="libfdt" path="l4/pkg/libfdt" />
   <project name="../l4re/lwip" path="l4/pkg/lwip" revision="main" />
   <project name="../l4re/curl" path="l4/pkg/curl" revision="main" />
   <project name="../l4re/zstd" path="l4/pkg/zstd" revision="main" />
