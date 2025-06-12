@@ -1,0 +1,41 @@
+$ gdisk /tmp/emmc.img 
+GPT fdisk (gdisk) version 1.0.10
+  
+Partition table scan:
+  MBR: not present
+  BSD: not present
+  APM: not present
+  GPT: not present
+  
+Creating new GPT entries in memory.
+ 
+Command (? for help): n
+Partition number (1-128, default 1): 
+First sector (34-32734, default = 2048) or {+-}size{KMGTP}: 
+Last sector (2048-32734, default = 30719) or {+-}size{KMGTP}: 
+Current type is 8300 (Linux filesystem)
+Hex code or GUID (L to show codes, Enter = 8300): 
+Changed type of partition to 'Linux filesystem'
+
+Command (? for help): i
+Using 1
+Partition GUID code: 0FC63DAF-8483-4772-8E79-3D69D8477DE4 (Linux filesystem)
+Partition unique GUID: 8B5424CF-C8D3-4B21-BE37-66D7FC61B1BC
+First sector: 2048 (at 1024.0 KiB)
+Last sector: 30719 (at 15.0 MiB)
+Partition size: 28672 sectors (14.0 MiB)
+Attribute flags: 0000000000000000
+Partition name: 'Linux filesystem'
+
+Command (? for help): w
+  
+Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+PARTITIONS!!
+  
+Do you want to proceed? (Y/N): y
+OK; writing new GUID partition table (GPT) to emmc.img.
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+$

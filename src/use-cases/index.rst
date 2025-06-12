@@ -7,5 +7,6 @@ Use cases
    s32g-emmc/index
    rtc/index
    net-swt-curl/index
+   emmc-qemu/index
    aws-ec2/index
    usb/index
