@@ -9,4 +9,3 @@ module emmc-qemu.ned
 module[arch=arm64] io/plat-arm_virt/hw_devices.io
 module[arch=arm] io/plat-arm_virt/hw_devices.io
 module vbus.io
-module ex_ext2fs
