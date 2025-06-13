@@ -44,7 +44,7 @@ Depending on your host system, you might need to install some prerequisities.
 
    .. sourcecode::
 
-      yay -S perl-git-repository perl-xml-mini perl-uri</pre>
+      yay -S perl-git-repository perl-xml-mini perl-uri
 
 
 Getting and Installing Ham
