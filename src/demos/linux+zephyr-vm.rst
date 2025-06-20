@@ -59,7 +59,7 @@ for you host platform. These models are available free of charge::
 
     $ wget https://developer.arm.com/-/cdn-downloads/permalink/FVPs-Architecture/FM-11.28/FVP_Base_AEMv8R_11.28_23_Linux64.tgz
     $ tar xf FVP_Base_AEMv8R_11.28_23_Linux64.tgz
-    $ export PATH="$PWD/AEMv8R_base_pkg-11.28/models/Linux64_GCC-9.3:$PATH"
+    $ export PATH="$PWD/AEMv8R_base_pkg/models/Linux64_GCC-9.3:$PATH"
 
 The example has been tested with the 11.28 release but it should also work
 with older models. Starting the example assumes that the FVP is availble
