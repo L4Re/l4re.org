@@ -17,9 +17,11 @@ Build
 =====
 
 Follow the :ref:`initial build introductions <getting_started-bob>`. Build
-the particular example via::
+the particular example via:
 
-    $ bob dev --dev-sandbox examples-arm-fvp_base_r/examples::freertos-tvmm -j
+.. sourcecode:: shell
+
+    bob dev --dev-sandbox examples-arm-fvp_base_r/examples::freertos-tvmm -j
     [...]
     Build result is in dev/dist/examples/freertos-tvmm/1/workspace
 
@@ -30,17 +32,21 @@ The example runs in the `Arm Fixed Virtual Platform
 <https://developer.arm.com/Tools%20and%20Software/Fixed%20Virtual%20Platforms>`_
 emulator. To run it, download the FVP_Base_AEMv8R model of the
 `Arm Architecture FVPs <https://developer.arm.com/Tools%20and%20Software/Fixed%20Virtual%20Platforms/Arm%20Architecture%20FVPs>`_
-for you host platform. These models are available free of charge::
+for you host platform. These models are available free of charge:
 
-    $ wget https://developer.arm.com/-/cdn-downloads/permalink/FVPs-Architecture/FM-11.28/FVP_Base_AEMv8R_11.28_23_Linux64.tgz
-    $ tar xf FVP_Base_AEMv8R_11.28_23_Linux64.tgz
-    $ export PATH="$PWD/AEMv8R_base_pkg-11.28/models/Linux64_GCC-9.3:$PATH"
+.. sourcecode:: shell
+
+    wget https://developer.arm.com/-/cdn-downloads/permalink/FVPs-Architecture/FM-11.28/FVP_Base_AEMv8R_11.28_23_Linux64.tgz
+    tar xf FVP_Base_AEMv8R_11.28_23_Linux64.tgz
+    export PATH="$PWD/AEMv8R_base_pkg/models/Linux64_GCC-9.3:$PATH"
 
 The example has been tested with the 11.28 release but it should also work
 with older models. Starting the example assumes that the FVP is availble
-in ``$PATH``::
+in ``$PATH``:
 
-    $ dev/dist/examples/freertos-tvmm/1/workspace/bootstrap.elf.launch
+.. sourcecode:: shell
+
+    dev/dist/examples/freertos-tvmm/1/workspace/bootstrap.elf.launch
 
 The above command will start the example and should produce output
 comparable to the example below::
