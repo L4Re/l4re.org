@@ -9,6 +9,11 @@ L4Re has its origins in research, starting around 1997.
 
 Research papers on L4Re-related topics:
 
+MettEagle: Costs and Benefits of Implementing Containers on Microkernels
+  Till Miemietz, Viktor Reusch, and Matthias Hille, Barkhausen Institut; Lars Wrenger, Leibniz-Universität Hannover; Jana Eisoldt, Barkhausen Institut; Jan Klötzke, Kernkonzept GmbH; Max Kurze, Technische Universität Dresden; Adam Lackorzynski, Technische Universität Dresden and Kernkonzept GmbH; Michael Roitzsch, Barkhausen Institut; Hermann Härtig, Barkhausen Institut and Technische Universität Dresden |br|
+  *19th USENIX Symposium on Operating Systems Design and Implementation (OSDI25), Boston, MA, USA, July 2025* |br|
+  *Link to follow*
+
 A Perfect Fit? – Towards Containers on Microkernels
   Till Miemietz, Viktor Reusch, Matthias Hille, Max Kurze, Adam Lackorzyński, Michael Roitzsch, Hermann Härtig |br|
   *10th International Workshop on Container Technologies and Container Clouds (WoC), December 2024* |br|
