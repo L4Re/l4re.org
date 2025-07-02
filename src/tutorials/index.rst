@@ -1,12 +1,6 @@
 Tutorials
 *********
 
-.. admonition:: Under Construction
-   :class: note
-
-   This part of the website is being worked on. Parts in this section might be
-   missing or incomplete at this moment.
-
 .. topic:: :doc:`compiling`
 
    Learn how to build your applications in a way that you can run them on L4Re.
