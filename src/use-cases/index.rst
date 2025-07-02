@@ -1,6 +1,8 @@
 Use cases
 *********
 
+Use cases shall describe whole setups that can be run.
+
 .. toctree::
    :maxdepth: 1
 
