@@ -3,44 +3,43 @@ L4Re on Raspberry Pi
 
 This is a demo of some capabilities of open source L4Re Operating System Framework running on the
 Raspberry Pi 4B. It demonstrates L4Re's virtualization capabilities as well as running native L4Re
-micro apps.
+MicroApps.
 
 This demo features two virtual machines (VMs). The first VM runs OpenWRT and acts as an on-device
 firewall. The second VM runs Raspian Lite and connects through OpenWRT to the internet. A native
-L4Re micro app periodically blinks the green activity LED of the Raspberry Pi. The persistent
+L4Re MicroApp periodically blinks the green activity LED of the Raspberry Pi. The persistent
 storage for the VMs is provided by a native eMMC driver which securely provides individual
 partitions to each VM.
 
 Getting Started
 ===============
 
-#. Download the current `demo image <https://l4re.org/download/demo/rpi4_l4re_demo.img-202506.gz>`_
-   (`sha256 sum <https://l4re.org/download/demo/rpi4_l4re_demo.img-202506.gz.SHA256SUM>`_)
-   for the SD card
+#. Download the current `demo image <https://l4re.org/download/demo/rpi4_l4re_demo-202506.img.gz>`_
+   (`SHA256 checksum <https://l4re.org/download/demo/rpi4_l4re_demo-202506.img.gz.SHA256SUM>`_)
+   for the SD card.
 #. Flash the image to a SD card (size >= 8GB)
 
    .. sourcecode:: shell
       :caption: Linux
 
-       $ zcat rpi4_l4re_demo.img.gz | sudo dd of=/dev/<SD_card_dev_node> bs=10M status=progress
+       $ zcat rpi4_l4re_demo-202506.img.gz | dd of=/dev/<SD_card_dev_node> bs=10M status=progress
 
    .. sourcecode:: shell
       :caption: Mac
 
-       $ zcat < rpi4_l4re_demo.img.gz | sudo dd of=/dev/rdisk<X> bs=10M status=progress
+       $ zcat < rpi4_l4re_demo-202506.img.gz | dd of=/dev/rdisk<X> bs=10M status=progress
 
-#. Once the flashing has finished put the SD card into your Raspberry Pi 4
-#. Connect USB2Serial adapter to your Raspberry Pi 4 and then to your (Linux) computer
+#. Once the flashing has finished put the SD card into your Raspberry Pi 4.
+#. Connect a USB2Serial adapter to your Raspberry Pi 4 and then to your computer.
 #. Connect Ethernet cable to your Raspberry Pi (make sure you have a DHCP server running in your
-   network, your usual home router should do it)
-#. Connect terminal program e.g. `picocom` or `minicom`:
+   network, your usual home router should do it).
+#. Connect terminal program e.g. `minicom`:
 
    .. sourcecode:: shell
 
-       $ picocom -l -b 115200 /dev/serial/by-id/<serial_adapter>
        $ minicom -D /dev/serial/by-id/<serial_adapter> -b 115200
 
-#. Connect power adapter and let the Raspberry Pi boot
+#. Connect the power adapter and let the Raspberry Pi boot
 #. You will see the boot messages in your terminal program
 
 .. figure:: rpi-boot.png
@@ -48,18 +47,21 @@ Getting Started
 
    Screenshot of L4Re boot messages
 
-**Troubleshoot**
+**Troubleshooting**
 
-Make sure hardware flow-control is ***disabled***
+- Make sure hardware flow-control is **disabled**.
 
-Make sure your current user is in the `dialout` group:
+- If ``dd`` fails due to permission problems, ensure your current user is in
+  the `plugdev` group, or use ``sudo`` or run as root.
+
+- If minicom returns with permission problems, make sure your current user is in the `dialout` group:
 
 .. sourcecode:: shell
 
     $ sudo usermod -a -G dialout <your user>
 
-Welcome to the L4Re
-===================
+Welcome to L4Re
+===============
 
 Once L4Re has booted you will be greeted by the L4Re console `cons`. It allows you to connect to
 different client consoles.
@@ -76,7 +78,7 @@ different client consoles.
         vm_openwrt (1) [        ] out:  328/ 19499 in:    0/    0
         vm_raspian (2) [        ] out:  516/ 37126 in:    0/    0
 
-You can see two virtuals machines (VMs) running: `vm_openwrt` and `vm_raspian`.
+You can see 2 virtuals machines (VMs) running: `vm_openwrt` and `vm_raspian`.
 
 Connect to the VM consoles
 
@@ -84,7 +86,7 @@ Connect to the VM consoles
 
     demo> connect vm_openwrt
 
-To discconnect from a client console press `CTRL+e .`
+To discconnect from a client console press `CTRL+e .` ("Ctrl e" plus "dot")
 
 The VMs
 =======
@@ -107,7 +109,7 @@ Find out the IP address of the OpenWRT VM:
     demo> connect vm_openwrt
     $ ip a
 
-In your browser navigate to `http://<ip_address_of_openwrt>` and just login as the `root` user, no password is set
+In your browser navigate to `http://<ip_address_of_openwrt>` and just login as the `root` user, no password is set.
 
 Raspian Lite
 ------------
@@ -125,15 +127,15 @@ Login to Raspian:
     | password: `raspberry`
 
 If the Raspberry Pi is connected to a network via Ethernet you can connect to the internet. OpenWRT
-NAT's the network access.
+is NAT'ing the network access.
 
 .. sourcecode::
 
-    pi:~ $ ping www.heise.de
+    pi:~ $ ping www.l4re.org
     pi:~ $ sudo apt update
 
-Native micro apps
-=================
+Native MicroApps
+================
 
 eMMC driver
 -----------
@@ -147,4 +149,4 @@ See output from eMMC driver:
 ex_gpio_led
 -----------
 
-Let the Raspberry Pi's green activity LED blink
+This MicroApp makes the Raspberry Pi's activity LED blink.
