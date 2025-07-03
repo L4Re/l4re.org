@@ -14,7 +14,23 @@ partitions to each VM.
 Getting Started
 ===============
 
-#. Connect USB2Serial adapter to your (Linux) computer
+#. Download the current `demo image <https://l4re.org/download/demo/rpi4_l4re_demo.img-202506.gz>`_
+   (`sha256 sum <https://l4re.org/download/demo/rpi4_l4re_demo.img-202506.gz.SHA256SUM>`_)
+   for the SD card
+#. Flash the image to a SD card (size >= 8GB)
+
+   .. sourcecode:: shell
+      :caption: Linux
+
+       $ zcat rpi4_l4re_demo.img.gz | sudo dd of=/dev/<SD_card_dev_node> bs=10M status=progress
+
+   .. sourcecode:: shell
+      :caption: Mac
+
+       $ zcat < rpi4_l4re_demo.img.gz | sudo dd of=/dev/rdisk<X> bs=10M status=progress
+
+#. Once the flashing has finished put the SD card into your Raspberry Pi 4
+#. Connect USB2Serial adapter to your Raspberry Pi 4 and then to your (Linux) computer
 #. Connect Ethernet cable to your Raspberry Pi (make sure you have a DHCP server running in your
    network, your usual home router should do it)
 #. Connect terminal program e.g. `picocom` or `minicom`:
