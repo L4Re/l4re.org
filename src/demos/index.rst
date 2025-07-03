@@ -11,3 +11,4 @@ All demos and sample applications are available as `pre-built images
 
    freertos-tvmm
    linux+zephyr-vm
+   raspi-firewall-raspian
