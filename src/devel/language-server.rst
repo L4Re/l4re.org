@@ -12,8 +12,8 @@ User-level
 ----------
 
 User-level components are built out of combined source tree. The build
-system generated a ``compile_commands.json`` file by calling from your build
-directory:
+system generates a ``compile_commands.json`` file by calling this from your
+build directory:
 
 .. sourcecode:: shell
 
