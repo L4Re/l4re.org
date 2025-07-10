@@ -87,6 +87,7 @@ Professional support
    detailed_introduction/index
    bsp/index
    use-cases/index
+   devel/index
 
 .. toctree::
    :hidden:
