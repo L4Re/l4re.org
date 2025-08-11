@@ -9,7 +9,7 @@ thus L4Re images have to be UEFI accordingly.
 Compiler Observations
 ---------------------
 
-Some compiler instabilities for the EC22 target have been sometimes observed on
+Some compiler instabilities for the EC2 target have been sometimes observed on
 an older gcc toolchain (11.4.0). These instabilities were resolved by moving to
 a newer toolchain (14.2.rel1). If unexplained instabilities occur, consider
 upgrading the compilation toolchain if possible.
