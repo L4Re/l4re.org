@@ -32,7 +32,7 @@ later::
 
   $ make savedefconfig
 
-Here are the required L4Re hypervisorsor defconfig options for arm sbsa::
+Here are the required L4Re hypervisor defconfig options for arm sbsa::
 
   CONFIG_BUILD_ARCH_arm64=y
   CONFIG_PLATFORM_TYPE_arm_sbsa=y
