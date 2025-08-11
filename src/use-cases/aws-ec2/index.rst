@@ -20,7 +20,7 @@ Configure for EC2
 The L4Re hypervisor and Fiasco microkernel require specific configurations to
 work on ``arm sbsa`` hardware.
 
-The options can be configured manually with standard configuraiton commands
+The options can be configured manually with standard configuration commands
 (assuming ``L4RE_OBJDIR`` and similar environment variables are set in the same
 fashion as building with GNU make)::
 
