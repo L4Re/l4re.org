@@ -6,8 +6,63 @@ L4Re on AWS EC2
 This page describes how to run L4Re on AWS EC2. EC2 instances boot via UEFI,
 thus L4Re images have to be UEFI accordingly.
 
+Compiler Observations
+---------------------
+
+Some compiler instabilities for the EC2 target have been sometimes observed on
+an older gcc toolchain (11.4.0). These instabilities were resolved by moving to
+a newer toolchain (14.2.rel1). If unexplained instabilities occur, consider
+upgrading the compilation toolchain if possible.
+
+Configure for EC2
+-----------------
+
+The L4Re hypervisor and Fiasco microkernel require specific configurations to
+work on ``arm sbsa`` hardware.
+
+The options can be configured manually with standard configuration commands
+(assuming ``L4RE_OBJDIR`` and similar environment variables are set in the same
+fashion as building with GNU make)::
+
+  $ cd $L4RE_OBJDIR
+  $ make config
+
+Optionally, a defconfig (named ``olddefconfig``) can be generated and re-applied
+later::
+
+  $ make savedefconfig
+
+Here are the required L4Re hypervisor defconfig options for arm sbsa::
+
+  CONFIG_BUILD_ARCH_arm64=y
+  CONFIG_PLATFORM_TYPE_arm_sbsa=y
+  CONFIG_TINIT_HEAP_SIZE=0
+
+An L4Re ``olddefconfig`` containing the above lines can be re-applied with::
+
+  make O=$L4RE_OBJDIR olddefconfig
+
+Here are the required Fiasco microkernel defconfig options for arm sbsa::
+
+  CONFIG_ARM=y
+  CONFIG_PF_SBSA=y
+  CONFIG_ARM_NEOVERSE_N1=y
+  CONFIG_MP_MAX_CPUS=64
+  CONFIG_KERNEL_NX=y
+  CONFIG_PERFORMANCE=y
+  CONFIG_JDB_DISASM=y
+  CONFIG_ARM_PT48=y
+
+A Fiasco ``olddefconfig`` containing the above lines can be re-applied with::
+
+  make O=$KERNEL_OBJDIR olddefconfig
+
+
+Build EC2 EFI
+-------------
+
 In your finished L4Re build, in your build tree, for x86-64, generate a UEFI
-image like this::
+image for the ``hello`` target like this::
 
   $ make efiimage E=hello
 
@@ -201,6 +256,64 @@ devices giving access to specific partitions and/or EC2 volumes.
    -- ... an EC2 volume id followed by an nvme namespace id (usually n1)
    local nvme_vol1 = nvme:create(0, "ds-max=5", "device=vol00489f52aed3a6549:n1");
 
+Full storage access using nvme-drv
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In cases where simpler, full storage access passthrough is desired, IO can be
+configured without a ``vbus_storage`` channel.
+
+.. code-block:: lua
+
+   -- Platform ctrl (Can be passed to guest so that shutdowns/reboots are
+   -- passed through to host)
+   local platform_ctl = L4.default_loader:new_channel();
+
+   -- Guest vbus
+   local vbus_guest1 = L4.default_loader:new_channel();
+
+   -- Start io
+   L4.default_loader:start({
+       scheduler = vmm.new_sched(0x40,0x2),
+       log = { "io", "red" },
+       caps = {
+         sigma0 = L4.cast(L4.Proto.Factory, L4.Env.sigma0):create(L4.Proto.Sigma0);
+         icu    = L4.Env.icu;
+         iommu  = L4.Env.iommu;
+         jdb    = L4.Env.jdb;
+
+         -- Server side of platform_ctl cap, so IO responds to requests on it.
+         platform_ctl = platform_ctl:svr();
+
+         -- Server side of guest1 cap, to pass to uvmm directly
+         guest1 = vbus_guest1:svr();
+       },
+   }, "rom/io rom/config.io");
+
+The ``config.io`` will also be simpler, without a ``storage`` vbus
+configuration, instead specifying ``ami`` and ``nvme`` in the guest vbus.
+
+.. code-block:: lua
+
+   -- match returns matched devices as an array
+   local ami_device = Io.system_bus():match("PCI/VEN_1D0F&DEV_0061")
+   local ena_devices = Io.system_bus():match("PCI/VEN_1D0F&DEV_EC20")
+   local nvme_devices = Io.system_bus():match("PCI/VEN_1D0F&DEV_0065")
+
+   -- and create a vbus for one guest with all devices
+   Io.add_vbusses {
+     guest1 = Io.Vi.System_bus(function()
+       Property.num_msis = 512;
+
+       PCI0 = Io.Vi.PCI_bus(function ()
+           network0 = wrap(ena_devices[0]);
+           network1 = wrap(ena_devices[1]);
+           ami = wrap(ami_device);
+           nvme = wrap(nvme_devices);
+       end);
+     end);
+   };
+
+
 Pass vbusses to uvmm
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -212,6 +325,7 @@ as part of the uvmm package.
 
   vmm.start_vm{
     -- Other settings...
+    fdt = "rom/virt-arm_sbsa.dtb",
 
     -- Vbus
     vbus = vbus_guest1,
@@ -220,6 +334,10 @@ as part of the uvmm package.
       disk = nvme_vol1;
     },
   };
+
+Using a compatible arm sbsa virtio dtb is required here (Example:
+``virt-arm_sbsa.dtb``). The given dtb file must be specified in the configured
+target in the ``modules.list``.
 
 Be aware: For each virtio device passed to a guest a corresponding
 virtio-proxy node needs to exist in the device tree given to uvmm. This
