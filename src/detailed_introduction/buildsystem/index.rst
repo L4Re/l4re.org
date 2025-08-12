@@ -23,6 +23,7 @@ troubles <troubleshooting>` you encountered until now.
    :maxdepth: 1
    :hidden:
 
+   configuration
    cross_compiling
    clang
    updating
