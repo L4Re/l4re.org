@@ -80,16 +80,16 @@ Intra space IPC core-local IPC and system calls, parallel on cores
    <script src="_static/js/chart.js"></script>
 
 .. raw:: html
-   :file: ../perf/gen/arm_altra80_el1_ipc.html
+   :file: ../_build/perf/arm_altra80_el1_ipc.html
 
 .. raw:: html
-   :file: ../perf/gen/arm_altra80_el2_ipc.html
+   :file: ../_build/perf/arm_altra80_el2_ipc.html
 
 .. raw:: html
-   :file: ../perf/gen/x86_xeon_gold_6248R_2socket_noht.html
+   :file: ../_build/perf/x86_xeon_gold_6248R_2socket_noht.html
 
 .. raw:: html
-   :file: ../perf/gen/x86_xeon_gold_6248R_2socket_all.html
+   :file: ../_build/perf/x86_xeon_gold_6248R_2socket_all.html
 
 .. raw:: html
-   :file: ../perf/gen/x86_n100.html
+   :file: ../_build/perf/x86_n100.html
