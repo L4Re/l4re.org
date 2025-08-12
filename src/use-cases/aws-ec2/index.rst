@@ -6,74 +6,12 @@ L4Re on AWS EC2
 This page describes how to run L4Re on AWS EC2. EC2 instances boot via UEFI,
 thus L4Re images have to be UEFI accordingly.
 
-Compiler Observations
----------------------
+.. note::
 
-Some compiler instabilities for the EC2 target have been sometimes observed on
-an older gcc toolchain (11.4.0). These instabilities were resolved by moving to
-a newer toolchain (14.2.rel1). If unexplained instabilities occur, consider
-upgrading the compilation toolchain if possible.
-
-Configure for EC2
------------------
-
-The L4Re hypervisor and Fiasco microkernel require specific configurations to
-work on ``arm sbsa`` hardware.
-
-The options can be configured manually with standard configuration commands
-(assuming ``L4RE_OBJDIR`` and similar environment variables are set in the same
-fashion as building with GNU make)::
-
-  $ cd $L4RE_OBJDIR
-  $ make config
-
-Optionally, a defconfig (named ``olddefconfig``) can be generated and re-applied
-later::
-
-  $ make savedefconfig
-
-Here are the required L4Re hypervisor defconfig options for arm sbsa::
-
-  CONFIG_BUILD_ARCH_arm64=y
-  CONFIG_PLATFORM_TYPE_arm_sbsa=y
-  CONFIG_TINIT_HEAP_SIZE=0
-
-An L4Re ``olddefconfig`` containing the above lines can be re-applied with::
-
-  make O=$L4RE_OBJDIR olddefconfig
-
-Here are the required Fiasco microkernel defconfig options for arm sbsa::
-
-  CONFIG_ARM=y
-  CONFIG_PF_SBSA=y
-  CONFIG_ARM_NEOVERSE_N1=y
-  CONFIG_MP_MAX_CPUS=64
-  CONFIG_KERNEL_NX=y
-  CONFIG_PERFORMANCE=y
-  CONFIG_JDB_DISASM=y
-  CONFIG_ARM_PT48=y
-
-A Fiasco ``olddefconfig`` containing the above lines can be re-applied with::
-
-  make O=$KERNEL_OBJDIR olddefconfig
-
-
-Build EC2 EFI
--------------
-
-In your finished L4Re build, in your build tree, for x86-64, generate a UEFI
-image for the ``hello`` target like this::
-
-  $ make efiimage E=hello
-
-For arm64, use the SBSA platform and generate a UEFI image like this::
-
-  $ make efiimage E=hello PT=arm_sbsa
-
-On x86-64 the resulting image is called ``bootx64.efi`` and on arm64 it is
-called ``bootaa64.efi``, and can be found in the ``images`` folder of your
-build directory.
-
+   We experienced some instabilities for the EC2 target when using older gcc
+   toolchains (~11). We're working to resolve these issues. In the meantime if
+   unexplained instabilities occur, consider using a newer compiler toolchain
+   if possible.
 
 EC2 Instance Types
 ------------------
@@ -90,11 +28,79 @@ Thus, if virtualization shall be used with L4Re, a "metal" instance is
 required. In a VM-instance, L4Re will only work in a non-hypervisor
 configuration.
 
+Configure for EC2
+-----------------
+
+This section gives you specific details about configuring your build for EC2.
+General information about configuring L4Re and the L4Re microkernel can be found
+in the section :doc:`/detailed_introduction/buildsystem/configuration`
+
+Instance type m7g.metal
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The m7g.metal intance type is based on the ARM SBSA specification, which is why
+we choose ``arm_sbsa`` as the platform type. L4Re and the L4Re
+microkernel require specific configurations to work on the m7g.metal instance
+type hardware.
+
+Necessary configuration options for L4Re::
+
+  CONFIG_BUILD_ARCH_arm64=y
+  CONFIG_PLATFORM_TYPE_arm_sbsa=y
+
+Necessary configuration options for the L4Re microkernel::
+
+  CONFIG_ARM=y
+  CONFIG_PF_SBSA=y
+  CONFIG_ARM_NEOVERSE_N1=y
+  CONFIG_MP_MAX_CPUS=64
+  CONFIG_KERNEL_NX=y
+  CONFIG_ARM_PT48=y
+
+x86-64 instance types
+^^^^^^^^^^^^^^^^^^^^^
+
+For the majority of x86-64 hardware you should choose ``amd64`` as architecture
+and ``pc`` as platform.
+
+Necessary options for L4Re::
+
+  CONFIG_BUILD_ARCH_amd64=y
+  CONFIG_PLATFORM_TYPE_pc=y
+
+Necessary options for the L4Re microkernel::
+
+  CONFIG_AMD64=y
+  CONFIG_PF_PC=y
+
+Build EFI image
+---------------
+
+In your finished L4Re build, in your build tree, for x86-64, generate a UEFI
+image for the ``hello`` target like this::
+
+  $ make efiimage E=hello
+
+For arm64, use the SBSA platform and generate a UEFI image like this::
+
+  $ make efiimage E=hello PT=arm_sbsa
+
+On x86-64 the resulting image is called ``bootx64.efi`` and on arm64 it is
+called ``bootaa64.efi``, and can be found in the ``images`` folder of your
+build directory.
+
 Booting on EC2
 --------------
 
 The generated EFI image of L4Re can be booted as any other OS kernel from
 within the AMI, with GRUB or directly from UEFI.
+
+Booting from disk
+^^^^^^^^^^^^^^^^^
+
+To boot your EFI image from disk, put it in the EFI partition (typically mounted
+at ``/boot/efi``) on your AMI/your instance's storage device ``/EFI/BOOT`` under
+the name ``BOOTX64.EFI`` or ``BOOTAA64.EFI`` respectively.
 
 Network Booting
 ^^^^^^^^^^^^^^^
@@ -126,7 +132,8 @@ Interacting with the Instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Head over to the "EC2 serial console" to interact with the instances,
-especially for seeing the output of it.
+especially for seeing the output of it. More information on the EC2 serial
+console can be found in the `EC2 documentation <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-serial-console.html>`__.
 
 Stopping an Instance
 ^^^^^^^^^^^^^^^^^^^^
@@ -256,11 +263,12 @@ devices giving access to specific partitions and/or EC2 volumes.
    -- ... an EC2 volume id followed by an nvme namespace id (usually n1)
    local nvme_vol1 = nvme:create(0, "ds-max=5", "device=vol00489f52aed3a6549:n1");
 
-Full storage access using nvme-drv
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Full storage access without using nvme-drv
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In cases where simpler, full storage access passthrough is desired, IO can be
-configured without a ``vbus_storage`` channel.
+In cases where simpler, full storage access passthrough is desired, the nvme-drv
+is not necessary. In this case IO can be configured without a ``vbus_storage``
+channel. Instead we add the devices the vbus_guest1 channel.
 
 .. code-block:: lua
 
@@ -305,8 +313,7 @@ configuration, instead specifying ``ami`` and ``nvme`` in the guest vbus.
        Property.num_msis = 512;
 
        PCI0 = Io.Vi.PCI_bus(function ()
-           network0 = wrap(ena_devices[0]);
-           network1 = wrap(ena_devices[1]);
+           network = wrap(ena_devices);
            ami = wrap(ami_device);
            nvme = wrap(nvme_devices);
        end);
@@ -325,33 +332,44 @@ as part of the uvmm package.
 
   vmm.start_vm{
     -- Other settings...
+
+    -- Device tree
     fdt = "rom/virt-arm_sbsa.dtb",
 
     -- Vbus
     vbus = vbus_guest1,
 
     ext_caps = {
+      -- Capability representing a virtio device provided by the nvme-drv
       disk = nvme_vol1;
     },
   };
 
-Using a compatible arm sbsa virtio dtb is required here (Example:
-``virt-arm_sbsa.dtb``). The given dtb file must be specified in the configured
-target in the ``modules.list``.
+.. note::
 
-Be aware: For each virtio device passed to a guest a corresponding
-virtio-proxy node needs to exist in the device tree given to uvmm. This
-node also chooses the name of the capability which has to be specified
-here. The default arm64 device tree comes with one such node::
+   For PCI passthrough to work on the ``arm_sbsa`` machine you need to use a
+   device tree with a PCI bridge, such as the ``virt-arm_sbsa.dtb`` provided as
+   part of the uvmm package. To add this file your L4Re image you need to
+   specify it in the modules.list for your target.
 
-   virtio_net@10000 {
-       compatible = "virtio,mmio";
-       reg = <0x10000 0x200>;
-       interrupt-parent = <&gic>;
-       interrupts = <0 123 4>;
-       l4vmm,vdev = "proxy";
-       l4vmm,virtiocap = "net";
-   };
+.. note::
+
+   For each virtio device passed to a guest a corresponding virtio-proxy node
+   needs to exist in the device tree given to uvmm. This node also chooses the
+   name of the capability which has to be specified here. The default arm64
+   device tree comes with one such node::
+
+      virtio_net@10000 {
+          compatible = "virtio,mmio";
+          reg = <0x10000 0x200>;
+          interrupt-parent = <&gic>;
+          interrupts = <0 123 4>;
+          l4vmm,vdev = "proxy";
+          l4vmm,virtiocap = "net";
+      };
+
+   Despite the name ``virtio_net`` it can be used with any type of virtio
+   capability.
 
 Using cloud-init in guests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
