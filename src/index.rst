@@ -111,7 +111,7 @@ Professional support
    :hidden:
    :caption: References
 
-   Doxygen Documentation <https://l4re.org/doc>
+   Developer Documentation <https://l4re.org/doc>
    L4Re on Github <https://github.com/kernkonzept>
    L4Re Mailing List <https://os.inf.tu-dresden.de/mailman/listinfo/l4-hackers>
    Professional Support <https://www.kernkonzept.com>
