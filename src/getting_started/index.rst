@@ -16,10 +16,10 @@ There are a number of avenues available to get started with L4Re.
    recipes together with the Bob Build Tool to build various pre-composed
    examples.
 
-.. topic:: :doc:`Build L4Re locally with Gnu Make <make>`
+.. topic:: :doc:`Build L4Re locally with GNU Make <make>`
 
    If you plan on working not only with, but on L4Re, you will have to use the
-   L4Re Build System that is based on Gnu Make. The respective chapters will
+   L4Re Build System that is based on GNU Make. The respective chapters will
    provide you with a detailed step-by-step introduction on how L4Re is
    compiled from scratch.
 

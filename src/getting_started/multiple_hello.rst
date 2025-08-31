@@ -20,7 +20,7 @@ suited for the respective build tool:
       repositories. This speeds up the build.
 
 
-.. tab:: Gnu Make
+.. tab:: GNU Make
 
    .. sourcecode:: shell
 
@@ -55,7 +55,7 @@ following:
      is stored in ``$BOB_DIR/recipes/example/hello/hello.cfg``, which initially just
      starts the ``hello`` application.
 
-  .. tab:: Gnu Make
+  .. tab:: GNU Make
 
      The Lua script specifying the scenario configuration to be launched by Ned
      is stored in ``$L4RE_SRCDIR/conf/example/hello.cfg``, which initially just
@@ -97,7 +97,7 @@ application known under the name ``rom/hello``.
       module hello.cfg
       module hello
 
-.. tab:: Gnu Make
+.. tab:: GNU Make
 
    There is another file that is important for this scenario to work as expected:
    ``$L4RE_SRCDIR/conf/modules.list``:
@@ -141,7 +141,7 @@ example application by duplicating the line that starts the first one:
 
 .. hint::
 
-   Building with Gnu Make, there is no recompilation needed to run this altered
+   Building with GNU Make, there is no recompilation needed to run this altered
    scenario, since it is interpreted at run time.
 
 Running this altered scenario will output double the amount of "Hello World!"

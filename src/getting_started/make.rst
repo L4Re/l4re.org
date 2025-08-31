@@ -1,10 +1,10 @@
-Building With Gnu Make
+Building With GNU Make
 **********************
 
 Building an L4Re system from scratch involves several Git repositories and
 multiple steps, that have to be taken for setting up the build environment.
 Once configured, you can develop directly inside the L4Re source tree and use
-Gnu Make to compile your changes.
+GNU Make to compile your changes.
 
 Prerequisities
 ==============
@@ -301,7 +301,7 @@ Next Steps
 
 * Go to :doc:`multiple_hello` to learn how to adjust l4re scenarios to your
   liking.
-* The Gnu Make based L4Re build system can be used to highly customise your
+* The GNU Make based L4Re build system can be used to highly customise your
   builds. You can get an overview of the most common usecases at :doc:`the
   detailed introduction into the build system
   </detailed_introduction/buildsystem/index>`.
