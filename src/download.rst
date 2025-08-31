@@ -11,7 +11,7 @@ Download
 
 .. topic:: `The L4Re Microkernel sources on Github <https://github.com/kernkonzept/fiasco>`_
 
-   The Specific repository containing the microkernel code.
+   The specific repository containing the microkernel code.
 
 .. .. topic:: `Tutorial source code <>`_
 .. 
