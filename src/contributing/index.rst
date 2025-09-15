@@ -8,29 +8,56 @@ Contributing to L4Re
 
    styleguide.md
 
-We welcome contributions to the L4Re project. However, to incorporate your
-contribution we are required to have a signed Contributor License Agreement
-(CLA) from you on file. The CLA certifies:
+We welcome contributions to the L4Re project!
 
-1. That you have the rights to give us the contribution and
-2. That you give us the rights to use your contribution.
+Contribution Policy
+===================
 
-Please sign the `Contributor License Agreement
-<https://www.kernkonzept.com/CLA>`_ and email it to
-**licensing@kernkonzept.com**, or send the original to Kernkonzept GmbH,
-Buchenstr. 16b, 01097 Dresden, Germany.
+All contributions to the L4Re project must be submitted as patches
+accompanied by a ``Signed-off-by:`` line in the commit message.
 
-If you feel it is too cumbersome to go through the whole CLA process for
-trivial contributions such as typo fixes, then please create an issue and we
-will fix it for you.
+By adding this line, you confirm that you have the right to submit the patch
+under the project’s license and that you agree to the Developer’s
+`Certificate of Origin (DCO) <https://developercertificate.org/>`_. If
+you're unfamiliar with DCO, please consult this page. It is really short.
 
-In order to maintain the high quality of the codebase we review each patch
-before it is submitted to our private master branch. We will continue to act as
-gatekeepers for pushing patches into the public repositories. That means that
-each contribution will be reviewed by Kernkonzept internally, before it gets
-merged to our private master branch and eventually gets published into the
-public repositories. Note that this can take quite a while as we may depend on
-external funding to do the work.
+A typical commit message looks like this:
+
+.. code::
+
+   Short summary of the change
+
+   More detailed explanation if necessary.
+
+   Signed-off-by: Your Name <your.email@example.com>
+
+
+Please ensure every patch carries at least one ``Signed-off-by:`` line.
+You may also consult git commit's ``-s`` option for further support in
+handling this.
+
+
+Trivial Fixes and Hints
+-----------------------
+
+For small fixes and changes, such as typo fixes and a few lines, you can also
+create an issue and we fix it. That is typically the faster process overall.
+
+Patch Process
+=============
+
+In order to maintain the high quality of the codebase we at Kernkonzept
+review each patch before it is submitted to the main branch. We might
+consider to do more work on the change for it to be ready to merge.
+
+We will continue to act as gatekeepers for pushing changes into the L4Re
+repositories to maintain an overall high quality and to maintain security
+and safety procedures we are obliged to do for L4Re.
+
+That means that each contribution will be reviewed by Kernkonzept developers
+internally, before it gets merged to our internal main branch and eventually
+gets published into the public repositories. This can take some
+time. We are happy to discuss options to accelerate this process.
 
 If you seek to make a large or involving change please open an issue up front
 and start discussing the details with us.
