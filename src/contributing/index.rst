@@ -17,8 +17,8 @@ All contributions to the L4Re project must be submitted as patches
 accompanied by a ``Signed-off-by:`` line in the commit message.
 
 By adding this line, you confirm that you have the right to submit the patch
-under the project’s license and that you agree to the Developer’s
-`Certificate of Origin (DCO) <https://developercertificate.org/>`_. If
+under the project’s license and that you agree to the `Developer’s
+Certificate of Origin (DCO) <https://developercertificate.org/>`_. If
 you're unfamiliar with DCO, please consult this page. It is really short.
 
 A typical commit message looks like this:
