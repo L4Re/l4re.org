@@ -23,10 +23,13 @@ High Assurance Systems
 ----------------------
 
 High Assurance Security IT systems are used in critical domains such as
-government, public authorities, defense and public infrastructure (KRITIS). To
+government, public authorities, defense and public infrastructure (in Germany: KRITIS). To
 protect classified information the highest security standards must be used to
 safe-guard the assets. With its minimal trusted computing base the L4Re
-Operating System Framework provides strong isolation to prevent
+Operating System Framework provides strong isolation to prevent leakage of
+unauthorized access, data leakage, and cross-contamination between security
+domains, thereby enabling the implementation of multi-level high security
+architectures.
 
 Secure Cloud Infrastructure
 ---------------------------
