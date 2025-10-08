@@ -120,13 +120,13 @@ This gives step-by-step instructions on how to build L4Re for the Rpi.
 
 * If all went well multiple so-called images have been built for the
   rpi4 platform. An image contains everything to run for a particular setup.
-  Images are located in ``obj/l4/arm64/images/bootstrap*rpi4*.elf``.
+  Images are located in ``obj/l4/arm64/images/l4re_*_rpi*.elf``.
 
  
 Using ready-to-use images
 =========================
 
-Pre-built images for the Rpi3 and Rpi4 are available for download:
+Pre-built images for the Rpi3, Rpi4 and Rpi5 are available for download:
 `64bit <https://l4re.org/download/snapshots/pre-built-images/arm64/>`_ and
 `32bit <https://l4re.org/download/snapshots/pre-built-images/arm-v7/>`_.
 
