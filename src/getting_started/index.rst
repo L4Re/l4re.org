@@ -12,7 +12,7 @@ There are a number of avenues available to get started with L4Re.
 
 .. topic:: :doc:`Build L4Re locally with the Bob Build Tool <bob>`
 
-   If you plan on working with L4re you might want to use the L4Re tutorial
+   If you plan on working with L4Re you might want to use the L4Re tutorial
    recipes together with the Bob Build Tool to build various pre-composed
    examples.
 

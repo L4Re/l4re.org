@@ -65,7 +65,7 @@ Getting the Sources
 ===================
 
 Before initializing any projects, let's  talk about a suitable directory
-structure. L4re is independent of the L4Re Microkernel location wise, as are
+structure. L4Re is independent of the L4Re Microkernel location wise, as are
 the build directories for both. When starting with cross compilation, you will
 find that there can be multiple build directories for the same source directory
 (for both, L4Re, and the L4Re Microkernel). It is possible to place all build
