@@ -31,8 +31,9 @@ The actual source code for the application is in ``server/src/main.c``:
        }
    }
 
-This is trivial C code. The instructions for the build system can be found in
-``server/src/Makefile``:
+This is trivial C code that is also not specific to L4Re, it should work on
+any somehow POSIX-compliant environment. The instructions for the build
+system can be found in ``server/src/Makefile``:
 
 .. sourcecode:: Makefile
    :caption: pkg/hello/server/src/Makefile
