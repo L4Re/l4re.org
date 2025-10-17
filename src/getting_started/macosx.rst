@@ -39,8 +39,12 @@ Now your MacOS system should be ready to build L4Re for Aarch64/arm64
 targets.
 However, for doing so, use ``gmake`` instead of ``make``, and use
 ``CROSS_COMPILE=aarch64-elf-``.
+
 Other targets (such as x86) are not supported because that would require a
-cross-compiler to be available in Homebrew.
+gcc cross-compiler to be available in Homebrew. As LLVM/clang can also be
+used to compile L4Re, the LLVM package from Homebrew should also work with
+all the targets it has built in. This guide shall be extended with this
+possibility.
 
 You can proceed now with the normal L4Re build process, obeying the two
 rules just mentioned. Please follow :ref:`build_with_make`.
