@@ -1,3 +1,5 @@
+.. _build_with_make:
+
 Building With GNU Make
 **********************
 
@@ -8,6 +10,9 @@ applications plugged into the build system.
 
 Once configured, you can develop directly inside the L4Re source tree and use
 GNU Make to compile your changes.
+
+Note that this guide is for Linux host systems. The L4Re build system also
+works on MacOS, please refer to the :ref:`macosx` page.
 
 Prerequisities
 ==============
@@ -62,7 +67,8 @@ whole set at once.
 
    git clone https://github.com/kernkonzept/ham.git
 
-Make sure to include the ``ham`` directory in your PATH.
+Make sure to include the ``ham`` directory in your PATH or link the ``ham``
+binary to some location in your PATH.
 
 Getting the Sources
 ===================
@@ -316,3 +322,8 @@ Next Steps
   framework
 * Have a look at the `API documentation <https://l4re.org/doc/>`_.
 
+
+.. toctree::
+   :hidden:
+
+   macosx
