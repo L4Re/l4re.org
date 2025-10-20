@@ -39,6 +39,12 @@ is used. On x86, the fixed-function counters are used.
 | Raspberry Pi 5  | Arm Cortex-A76 | 300                | 401                 | 202                | `▶️ <https://l4re.org/download/ipcbench/arm64/l4re_ipcbench_rpi5-el2.uimage>`__             |
 | 64bit - EL2     |                |                    |                     |                    |                                                                                             |
 +-----------------+----------------+--------------------+---------------------+--------------------+---------------------------------------------------------------------------------------------+
+| Raspberry Pi 4  | Arm Cortex-A72 | 505                | 702                 | 305                | `▶️ <https://l4re.org/download/ipcbench/arm64/l4re_ipcbench_rpi4-el1.uimage>`__             |
+| 64bit - EL1     |                |                    |                     |                    |                                                                                             |
++-----------------+----------------+--------------------+---------------------+--------------------+---------------------------------------------------------------------------------------------+
+| Raspberry Pi 4  | Arm Cortex-A72 | 1388 [#2]_         | 1600 [#2]_          | 567 [#2]_          | `▶️ <https://l4re.org/download/ipcbench/arm64/l4re_ipcbench_rpi4-el2.uimage>`__             |
+| 64bit-EL2       |                |                    |                     |                    |                                                                                             |
++-----------------+----------------+--------------------+---------------------+--------------------+---------------------------------------------------------------------------------------------+
 | NXP S32G2 64bit | Arm Cortex-A53 | 562                | 691                 | 230                | `▶️ <https://l4re.org/download/ipcbench/arm64/l4re_ipcbench_s32g-el1.uimage>`__             |
 | - EL1           |                |                    |                     |                    |                                                                                             |
 +-----------------+----------------+--------------------+---------------------+--------------------+---------------------------------------------------------------------------------------------+
@@ -63,6 +69,11 @@ is used. On x86, the fixed-function counters are used.
 +-----------------+----------------+--------------------+---------------------+--------------------+---------------------------------------------------------------------------------------------+
 
 .. [#1] Values reflect the PMC's fixed-function counters 2 (TSC without halt) / 1 (clocks unhalted) / 0 (instructions retired)
+
+.. [#2] The Cortex-A72 performs considerable slower in EL2 mode, compared to
+        running in EL1, and compared to EL2 of other Arm cores. This has
+        been analyzed down to the microarchitectural level and cannot be
+        influenced by software.
 
 For x86: You can boot the image directly in GRUB2, e.g. ``multiboot2 (http,l4re.org)/download/ipcbench/amd64/l4re_ipcbench-20250602.elf``
 
