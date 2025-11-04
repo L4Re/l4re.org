@@ -20,3 +20,7 @@ Tutorials
    compiling
    ipc-service
    device-driver
+   hwpassthrough
+   linuxvm
+   multiplevms
+   nvmewithlinux
