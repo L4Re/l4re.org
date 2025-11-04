@@ -14,13 +14,30 @@ Tutorials
 
    Implement a more complex L4Re service that works as a device driver.
 
+.. topic:: :doc:`linuxvm`
+
+   How to start a single Linux VM.
+
+.. topic:: :doc:`multiplevms`
+
+   How to run multiple VMs.
+
+.. topic:: :doc:`hwpassthrough`
+
+   How to pass through a hardware device to a VM.
+
+.. topic:: :doc:`nvmewithlinux`
+
+   How to use L4Re's NVMe driver to make a disk available to a VM via
+   Virtio.
+
 .. toctree::
    :hidden:
 
    compiling
    ipc-service
    device-driver
-   hwpassthrough
    linuxvm
    multiplevms
+   hwpassthrough
    nvmewithlinux

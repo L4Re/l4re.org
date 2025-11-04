@@ -8,10 +8,10 @@ you will find out how to interconnect the two guests using a virtual
 network link.
 
 You should be already familiar with the steps necessary to run a single
-Linux VM guest on top of L4Re as described in the `Running a Linux guest
-VM tutorial <LinuxVM>`__. You are also going to need the binaries built
-in that tutorial. This tutorial is using some new L4Re components, so
-you need to sync up your L4Re sources using *ham* and rebuild.
+Linux VM guest on top of L4Re as described in the :doc:`linuxvm`.
+You are also going to need the binaries built in that tutorial. This
+tutorial is using some new L4Re components, so you need to sync up your L4Re
+sources using *ham* and rebuild.
 
 Adding the extra VM
 -------------------

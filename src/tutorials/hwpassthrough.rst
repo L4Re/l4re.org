@@ -2,17 +2,9 @@ Hardware pass-through to the VM
 ===============================
 
 In this tutorial we will show you how to grant your VM direct access to
-some of the host’s I/O peripherals. Building on the previous tutorials,
-we will continue to use the QEMU virtual machine of the
-*qemu-system-aarch64* target. For simplicity reasons and because of the
-constraints of the used machine, we will be enabling access to a simple
+some of the host’s I/O peripherals. We will use QEMU and an aarch64 virtual
+machine. For simplicity reasons we will be enabling access to a simple
 device: the PL031 real time clock.
-
-Besides the `prerequisites <BUILDING>`__ from the previous tutorials,
-you are going to need the device tree compiler *dtc*. The package with
-*dtc* is called *dtc* on Fedora and *device-tree-compiler* on Debian. If
-you have ever built the *uvmm* package before, chances are you already
-have *dtc*.
 
 The issue
 ---------
@@ -21,8 +13,8 @@ By default, *uvmm* provides a completely virtualized environment to its
 guests and allows no access to the hardware devices of the host. For
 example, this pertains to the real time clock device used by Linux to
 display the actual date and time. Running the *date* command in a guest
-from the `Running multiple Linux guest VMs <MultipleVMs>`__ tutorial
-suggests the guest cannot figure out the exact time correctly:
+from the :doc:`multiplevms` tutorial suggests the guest cannot figure out
+the exact time correctly:
 
 ::
 
@@ -46,9 +38,8 @@ some configuration changes on your side as well as new components and
 configuration files.
 
 The following subsections will take you through all that. We will
-however assume you have just successfully completed the `Running
-multiple Linux guest VMs <MultipleVMs>`__ tutorial and made all the
-configuration steps.
+however assume you have just successfully completed the :doc:`multiplevms`
+tutorial and made all the configuration steps.
 
 By this time, you should have the following readily available:
 
@@ -56,8 +47,8 @@ By this time, you should have the following readily available:
 -  an aarch64 Linux build,
 -  an aarch64 RAM disk.
 
-I/O service
-~~~~~~~~~~~
+IO service
+~~~~~~~~~~
 
 First you are going to need a new component: *io*. As its name suggests,
 *io* is an I/O service that gives access to I/O peripherals to its
@@ -100,7 +91,7 @@ information.
 In this particular case, the values were extracted from the machine’s
 device tree (see below) and further modified for use by *io.cfg*. One
 such modification includes adding the base of 32 for SPI type IRQs to
-the IRQ number.
+the IRQ number, as used on the ARM architecture.
 
 Device tree
 ~~~~~~~~~~~

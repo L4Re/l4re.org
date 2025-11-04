@@ -3,8 +3,8 @@ Running a Linux guest VM
 
 This tutorial will teach you to run a VM with an unmodified version of
 Linux as a guest on L4Re. L4Re can act in the hypervisor capacity on
-several platforms, but in this tutorial we will use the QEMU virtual
-machine of the *qemu-system-aarch64* target.
+several platforms. In this tutorial we will use the Arch64 architecture with
+QEMU.
 
 Terminology
 -----------
@@ -55,11 +55,10 @@ then there is likely something wrong with your setup.
 Preparing L4Re sources
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The following assumes you are familiar with the procedures described in
-the `Building L4Re <BUILDING>`__ tutorial and that you have successfully
-used *ham* to check out L4Re sources into a top-level directory
-consistently called *somedir* throughout this text (but you can use a
-different name).
+The following assumes you are familiar with the procedures of building L4Re
+and that you have successfully used *ham* to check out L4Re sources into a
+top-level directory consistently called *somedir* throughout this text (but
+you can use a different name).
 
 Start by making sure you have the latest sources:
 
@@ -176,9 +175,9 @@ from l4re.org.
 Putting it all together
 -----------------------
 
-Unlike the simple *hello* example in the BUILDING tutorial, running a VM
-with a Linux guest is a little bit more involved and requires a little
-bit of configuration.
+Unlike the simple *hello* example that is used as the most simple example,
+running a VM with a Linux guest is a little bit more involved and requires a
+little bit of configuration.
 
 Now that all the prerequisities were installed, built or downloaded, you
 are ready to put everything together. First of all, you need to create a
@@ -199,7 +198,7 @@ interconnects them via IPC channels (i.e. IPC gate capabilities)
 according to a Lua configuration file passed to it as an argument.
 
 For our little scenario there is already a demo ned script, called
-`VM-Basic <here%20https://github.com/kernkonzept/mk/blob/master/conf/examples/vm-basic.cfg>`__.
+`VM-Basic <https://github.com/kernkonzept/mk/blob/master/conf/examples/vm-basic.cfg>`__.
 
 This ned script is as basic as it gets. It only supports a single VM and
 does not pass any host I/O devices to the VM, but already contains

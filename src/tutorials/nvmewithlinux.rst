@@ -1,12 +1,11 @@
 Using the NVMe server with a Linux guest VM
 ===========================================
 
-This tutorial will show you how the L4Re NVMe server can be used to make
+This tutorial will show you how the L4Re NVMe driver can be used to make
 an NVMe namespace or a GPT partition on an NVMe namespace accessible in
 the form of a VIRTIO block device to a Linux VM. We will use our
-knowledge from the previous tutorials, namely the `Building
-L4Re <BUILDING>`__, `Running a Linux guest VM <LinuxVM>`__ tutorials and
-to a degree the `Hardware pass-through to the VM <HwPassThrough>`__
+knowledge from the previous tutorials, namely the 
+:doc:`linuxvm` tutorial and to a degree the :doc:`hwpassthrough`
 tutorial. You are kindly reminded to get familiar with the concepts and
 procedures presented in them before moving on with this one.
 
@@ -31,8 +30,7 @@ Building everything
 -------------------
 
 You first need to checkout and build the sources for the following
-components as described in the `Building L4Re <BUILDING>`__ and `Running
-a Linux guest VM <LinuxVM>`__:
+components as described in the :doc:`linuxvm` tutorial:
 
 -  Fiasco
 -  L4Re
@@ -98,7 +96,7 @@ Create an empty 10MB file to hold an NVMe namespace image for QEMU:
    [somedir] $ dd if=/dev/zero of=images/disk.img bs=1M count=10
 
 You can tweak the count argument to change the size of the image in MB
-according to your needs.
+according to your liking.
 
 Configuring L4Re
 ----------------
