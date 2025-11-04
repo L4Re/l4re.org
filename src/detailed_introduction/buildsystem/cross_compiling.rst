@@ -133,7 +133,7 @@ and then launch the example using
 .. sourcecode:: shell
 
     cd $L4RE_OBJDIR_ARM64
-    make E=hello-cfg qemu MODULE_SEARCH_PATH=$KERNEL_OBJDIR_ARM64 PLATFORM_TYPE=arm_virt
+    make E=hello-cfg qemu MODULE_SEARCH_PATH=$KERNEL_OBJDIR_ARM64:$L4RE_SRCDIR/conf/examples PLATFORM_TYPE=arm_virt
 
 .. hint::
 
