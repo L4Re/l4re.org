@@ -112,6 +112,6 @@ Professional support
    :caption: References
 
    Developer Documentation <https://l4re.org/doc>
-   L4Re on Github <https://github.com/kernkonzept>
+   L4Re on Github <https://github.com/L4Re>
    L4Re Mailing List <https://os.inf.tu-dresden.de/mailman/listinfo/l4-hackers>
    Professional Support <https://www.kernkonzept.com>

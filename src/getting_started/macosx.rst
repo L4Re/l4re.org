@@ -59,7 +59,7 @@ Go to a directory of your choice, such as ``~/src/l4re``, and do:
 
 .. sourcecode:: shell
 
-   ham init -u https://github.com/kernkonzept/manifest.git
+   ham init -u https://github.com/L4Re/manifest.git
    ham sync
 
 Set up some configuration. Can be any, given it is built for Aarch64.
@@ -129,7 +129,7 @@ Then, get the Ham tool:
 
 .. sourcecode:: shell
 
-   git clone https://github.com/kernkonzept/ham.git
+   git clone https://github.com/L4Re/ham.git
 
 Make sure to include the ``ham`` directory in your PATH or link the ``ham``
 binary to some location in your PATH.

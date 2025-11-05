@@ -60,12 +60,12 @@ Getting and Installing Ham
 
 L4Re is composed of several loosely coupled Git repositories. While it is
 theoretically possible to manage them individually using Git alone, it is
-recommended to use `Ham <https://github.com/kernkonzept/ham>`_ for managing the
+recommended to use `Ham <https://github.com/L4Re/ham>`_ for managing the
 whole set at once.
 
 .. sourcecode:: shell
 
-   git clone https://github.com/kernkonzept/ham.git
+   git clone https://github.com/L4Re/ham.git
 
 Make sure to include the ``ham`` directory in your PATH or link the ``ham``
 binary to some location in your PATH.
@@ -120,7 +120,7 @@ repositories:
 
    mkdir $HOME/l4re_projects
    cd $HOME/l4re_projects
-   ham init -u https://github.com/kernkonzept/manifest.git
+   ham init -u https://github.com/L4Re/manifest.git
 
 This initialises a Ham project without checking out any sources. The
 ``manifest`` repository holds all information Ham needs to set up our L4Re

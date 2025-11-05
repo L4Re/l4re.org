@@ -30,7 +30,7 @@ In case you have a question or got stuck, the following support options are
 available:
 
 * Reach out on the l4-hackers@os.inf.tu-dresden.de mailing list for help.
-* Create an issue on `Github <https://github.com/kernkonzept>`_ at the affected
+* Create an issue on `Github <https://github.com/L4Re>`_ at the affected
   component.
 * Contact `Kernkonzept <https://www.kernkonzept.com>`_ for professional support
   and services of the L4Re maintainers.

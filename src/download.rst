@@ -5,7 +5,7 @@ Download
 
    - Stretch goal: Link to Tutorials
 
-.. topic:: `L4Re sources on Github <https://github.com/kernkonzept>`_
+.. topic:: `L4Re sources on Github <https://github.com/L4Re>`_
 
    See :doc:`/getting_started/make` on how to get all repositories at once.
 
@@ -14,7 +14,7 @@ Download
    The documentation of L4Re built out of its source code,
    including low-level documentation like APIs.
 
-.. topic:: `The L4Re Microkernel sources on Github <https://github.com/kernkonzept/fiasco>`_
+.. topic:: `The L4Re Microkernel sources on Github <https://github.com/L4Re/fiasco>`_
 
    The specific repository containing the microkernel code.
 

@@ -10,7 +10,7 @@ available:
 
 .. topic:: Github Issues
 
-   Create an issue on `Github <https://github.com/kernkonzept>`_ at the
+   Create an issue on `Github <https://github.com/L4Re>`_ at the
    affected component.
 
 .. topic:: The Maintainer
