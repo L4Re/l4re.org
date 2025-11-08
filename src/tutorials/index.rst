@@ -31,6 +31,10 @@ Tutorials
    How to use L4Re's NVMe driver to make a disk available to a VM via
    Virtio.
 
+.. topic:: :doc:`runimages`
+
+   How to run the pre-built images from l4re.org.
+
 .. toctree::
    :hidden:
 
@@ -41,3 +45,4 @@ Tutorials
    multiplevms
    hwpassthrough
    nvmewithlinux
+   runimages
