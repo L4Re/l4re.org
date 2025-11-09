@@ -35,6 +35,12 @@ Tutorials
 
    How to run the pre-built images from l4re.org.
 
+.. topic:: :doc:`modifyimages`
+
+   How to modify an existing image.
+
+   Update the Linux kernel in the image.
+
 .. toctree::
    :hidden:
 
@@ -46,3 +52,4 @@ Tutorials
    hwpassthrough
    nvmewithlinux
    runimages
+   modifyimages
