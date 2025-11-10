@@ -145,3 +145,6 @@ and use ``l4image`` to launch it:
     vm-2    | VMM[GIC]: create ARM GICv2
     ...
 
+
+If you like to exchange the Linux kernel in the image with a more recent
+one, please proceed with the :doc:`modifyimages`.
