@@ -26,18 +26,16 @@ Depending on your host system, you might need to install some prerequisities.
 
    .. sourcecode:: shell
 
-      apt-get install git make binutils liburi-perl libgit-repository-perl libxml-parser-perl gcc g++ libc6-dev-i386 libncurses-dev qemu-system xorriso mtools flex bison pkg-config gawk device-tree-compiler dialog wget doxygen graphviz
+      apt-get install git make binutils liburi-perl libgit-repository-perl libxml-parser-perl gcc g++ libc6-dev-i386 libncurses-dev qemu-system xorriso mtools flex bison pkg-config gawk device-tree-compiler dialog wget doxygen graphviz qemu-system
 
 
-.. tab:: Fedora 27
+.. tab:: Fedora
 
    You will need the following packages and their dependencies:
 
    .. sourcecode:: shell
 
-      dnf install perl-URI perl-Git-Repository-Plugin-AUTOLOAD perl-CPAN perl-Test perl-Text-Balanced gcc gcc-c++ glibc-devel.i686 ncurses-devel xorriso flex bison pkgconf-pkg-config gawk dtc
-      cpan install XML::Mini::Document
-
+      dnf install git make perl-CPAN perl-Git-Repository-Plugin-AUTOLOAD perl-libxml-perl flex bison gcc-x86_64-linux-gnu gcc-c++-x86_64-linux-gnu  diffutils dtc which ncurses-devel qemu
 
 .. tab:: Arch Linux
 
