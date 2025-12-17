@@ -55,7 +55,6 @@ Necessary configuration options for the L4Re microkernel::
   CONFIG_ARM_NEOVERSE_N1=y
   CONFIG_MP_MAX_CPUS=64
   CONFIG_KERNEL_NX=y
-  CONFIG_ARM_PT48=y
 
 x86-64 instance types
 ^^^^^^^^^^^^^^^^^^^^^
