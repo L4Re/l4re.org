@@ -150,3 +150,15 @@ ex_gpio_led
 -----------
 
 This MicroApp makes the Raspberry Pi's activity LED blink.
+
+
+Looking into the Disk Image
+===========================
+
+To take a look under the hood, follow the following link, to see how we can
+look into a disk image.
+
+.. toctree::
+   :maxdepth: 1
+
+   raspi-firewall-raspian-lookinto
