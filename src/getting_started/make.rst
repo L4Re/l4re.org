@@ -36,6 +36,7 @@ Depending on your host system, you might need to install some prerequisities.
    .. sourcecode:: shell
 
       dnf install git make perl-CPAN perl-Git-Repository-Plugin-AUTOLOAD perl-libxml-perl flex bison gcc-x86_64-linux-gnu gcc-c++-x86_64-linux-gnu  diffutils dtc which ncurses-devel qemu
+      cpan XML::Mini
 
 .. tab:: Arch Linux
 
