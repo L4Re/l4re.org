@@ -26,6 +26,11 @@ Tutorials
 
    How to pass through a hardware device to a VM.
 
+.. topic:: :doc:`staticpart`
+
+   How to statically partition CPU cores, memory and devices among
+   multiple VMs.
+
 .. topic:: :doc:`nvmewithlinux`
 
    How to use L4Re's NVMe driver to make a disk available to a VM via
@@ -50,6 +55,7 @@ Tutorials
    linuxvm
    multiplevms
    hwpassthrough
+   staticpart
    nvmewithlinux
    runimages
    modifyimages
