@@ -5,7 +5,8 @@ Research
 
    <br />
 
-L4Re has its origins in research, starting around 1997.
+L4Re has its origins in research, starting around 1997, and is still being
+researched:
 
 Research papers on L4Re-related topics:
 
