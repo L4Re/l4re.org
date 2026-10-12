@@ -23,9 +23,11 @@ AlwaysBreakTemplateDeclarations: true
 BinPackArguments: true
 BinPackParameters: true
 BraceWrapping:
+  AfterCaseLabel: true
   AfterClass: true
-  AfterControlStatement: true
+  AfterControlStatement: Always
   AfterEnum: true
+  AfterExternBlock: false
   AfterFunction: true
   AfterNamespace: true
   AfterStruct: true
@@ -36,8 +38,8 @@ BraceWrapping:
   BeforeWhile: true
   IndentBraces: true
   SplitEmptyFunction: false
-# clang 7.0 SplitEmtptyRecord: false
-# clang 7.0 SplitEmptyNamespace: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
 BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBraces: Custom
 BreakBeforeInlineASMColon: OnlyMultiline
